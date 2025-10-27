@@ -1,0 +1,295 @@
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const DonationPage = () => {
+  const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavigateWithScroll = (path: string, sectionId?: string) => {
+    navigate(path);
+    setMobileMenuOpen(false);
+    if (sectionId) {
+      setTimeout(() => scrollToSection(sectionId), 100);
+    }
+  };
+
+  const handleDonationFormOpen = () => {
+    // 仮URL - 後でGoogleフォームのURLに置き換え
+    window.open('https://forms.google.com/donation-placeholder-url', '_blank');
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-orange-50">
+      {/* ヘッダー */}
+      <header className="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <img
+                src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/1902391d84975e340bd26d675988ae2d.png"
+                alt="セルフラブ協会ロゴ"
+                className="h-12 w-12 object-contain"
+              />
+              <div>
+                <h1 className="text-xl font-bold text-gray-800" style={{ fontFamily: '"Pacifico", serif' }}>
+                  一般社団法人セルフラブ協会
+                </h1>
+                <p className="text-sm text-gray-600">Self Love Association Japan</p>
+              </div>
+            </div>
+
+            {/* デスクトップナビゲーション */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <button
+                onClick={() => navigate('/')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                ホーム
+              </button>
+              <button
+                onClick={() => handleNavigateWithScroll('/', 'about')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                協会について
+              </button>
+              <button
+                onClick={() => handleNavigateWithScroll('/', 'special-program')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                特別プログラム
+              </button>
+              <button
+                onClick={() => handleNavigateWithScroll('/', 'activities')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                活動紹介
+              </button>
+              <button
+                onClick={() => navigate('/membership')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                入会案内
+              </button>
+              <button
+                onClick={() => navigate('/donation')}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer"
+              >
+                寄付
+              </button>
+            </nav>
+
+            {/* モバイルハンバーガーメニューボタン */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer"
+            >
+              <i className={`ri-${mobileMenuOpen ? 'close' : 'menu'}-line text-2xl text-gray-700`}></i>
+            </button>
+          </div>
+
+          {/* モバイルメニュー */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
+              <nav className="flex flex-col space-y-4 pt-4">
+                <button
+                  onClick={() => handleNavigateWithScroll('/')}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  ホーム
+                </button>
+                <button
+                  onClick={() => handleNavigateWithScroll('/', 'about')}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  協会について
+                </button>
+                <button
+                  onClick={() => handleNavigateWithScroll('/', 'special-program')}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  特別プログラム
+                </button>
+                <button
+                  onClick={() => handleNavigateWithScroll('/', 'activities')}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  活動紹介
+                </button>
+                <button
+                  onClick={() => navigate('/membership')}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  入会案内
+                </button>
+                <button
+                  onClick={() => navigate('/donation')}
+                  className="text-left bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer w-fit"
+                >
+                  寄付
+                </button>
+              </nav>
+            </div>
+          )}
+        </div>
+      </header>
+
+      {/* メインコンテンツ */}
+      <main className="py-20 pt-32">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            {/* ページタイトル */}
+            <div className="text-center mb-16">
+              <h1 className="text-5xl font-bold text-gray-800 mb-6">寄付のお願い</h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+                セルフラブ教育の普及と発展のために、皆様のご支援をお願いいたします
+              </p>
+            </div>
+
+            {/* 寄付の目的 */}
+            <section className="mb-16">
+              <div className="bg-white rounded-2xl shadow-lg p-10">
+                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">寄付の目的</h2>
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <img
+                      src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/3fa4875a58e07538ccda1c4bd1b4fc34.jpeg"
+                      alt="セルフラブ教育の様子"
+                      className="rounded-lg shadow-lg object-cover w-full h-80 object-top"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-gray-700 mb-6 leading-relaxed text-lg">
+                      皆様からのご寄付は、セルフラブ教育の普及と発展のために大切に活用させていただきます。
+                    </p>
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                          <i className="ri-community-line text-purple-600 text-sm"></i>
+                        </div>
+                        <p className="text-gray-700">学校や各コミュニティでのワークショップ活動費</p>
+                      </div>
+                      <div className="flex items-start">
+                        <div className="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                          <i className="ri-graduation-cap-line text-pink-600 text-sm"></i>
+                        </div>
+                        <p className="text-gray-700">教育プログラムの開発・改善</p>
+                      </div>
+                      <div className="flex items-start">
+                        <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                          <i className="ri-group-line text-orange-600 text-sm"></i>
+                        </div>
+                        <p className="text-gray-700">講師の育成・研修</p>
+                      </div>
+                      <div className="flex items-start">
+                        <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                          <i className="ri-book-line text-green-600 text-sm"></i>
+                        </div>
+                        <p className="text-gray-700">教材・資料の制作</p>
+                      </div>
+                      <div className="flex items-start">
+                        <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                          <i className="ri-global-line text-blue-600 text-sm"></i>
+                        </div>
+                        <p className="text-gray-700">国際的な教育連携の推進</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 寄付申込フォーム */}
+            <section>
+              <div className="bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl p-10">
+                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">寄付のお申し込み</h2>
+                <div className="text-center py-12">
+                  <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i className="ri-heart-line text-3xl text-orange-600"></i>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">ご支援をお願いいたします</h3>
+                  <p className="text-gray-700 mb-8 leading-relaxed">
+                    セルフラブ教育の普及のために、皆様のあたたかいご支援をお願いいたします。<br />
+                    寄付申込フォームにご記入いただき、送信してください。
+                  </p>
+                  <button
+                    onClick={handleDonationFormOpen}
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
+                  >
+                    <i className="ri-external-link-line mr-2"></i>
+                    寄付申込フォームを開く
+                  </button>
+                  <p className="text-gray-500 text-sm mt-4">
+                    ※外部サイト（Googleフォーム）が開きます
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* 税制優遇について */}
+            <section className="mt-16">
+              <div className="bg-blue-50 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">税制優遇について</h3>
+                <p className="text-gray-700 text-center leading-relaxed">
+                  当協会は一般社団法人のため、現在のところ寄付金控除の対象ではございません。<br />
+                  将来的に公益社団法人への移行を検討しており、その際は税制優遇措置の適用を予定しております。
+                </p>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+      {/* フッター */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center space-x-4 mb-4">
+              <img
+                src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/1902391d84975e340bd26d675988ae2d.png"
+                alt="セルフラブ協会ロゴ"
+                className="h-10 w-10 object-contain"
+              />
+              <h3 className="text-2xl font-bold">一般社団法人セルフラブ協会</h3>
+            </div>
+            <p className="text-gray-300 mb-6">Self Love Association Japan</p>
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <h4 className="font-semibold mb-2">お問い合わせ</h4>
+                <a href="mailto:info@selflove.or.jp" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
+                  info@selflove.or.jp
+                </a>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">所在地</h4>
+                <p className="text-gray-300">東京都千代田区九段南一丁目5番6号<br />りそな九段ビル</p>
+              </div>
+              <div>
+                <div className="flex justify-center">
+                  <a href="#" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
+                    <i className="ri-instagram-line text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-gray-700 pt-6">
+              <p className="text-gray-400 text-sm">
+                Copyright © Self Love Association Japan. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default DonationPage;
