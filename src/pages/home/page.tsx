@@ -123,19 +123,19 @@ const HomePage = () => {
       </header>
 
       {/* ヒーローセクション */}
-      <section 
+      <section
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center pt-20"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/141c6eae142f0a24cf807443340e5732.jpeg')`
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url('https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/141c6eae142f0a24cf807443340e5732.jpeg')`
         }}
       >
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight" style={{ fontFamily: '"Hiragino Sans", "Noto Sans JP", sans-serif' }}>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight" style={{ fontFamily: '"Hiragino Sans", "Noto Sans JP", sans-serif', textShadow: '2px 2px 8px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7)' }}>
               自分を愛することから、<br className="hidden sm:block" />
               <span className="block sm:inline">学びは始まる</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed" style={{ textShadow: '1px 1px 6px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 255, 255, 0.7)' }}>
               セルフラブ教育を通じて、<br className="sm:hidden" />子どもも大人も<br />
               「ありのままの自分」を<br className="sm:hidden" />育てる社会へ
             </p>
@@ -202,7 +202,7 @@ const HomePage = () => {
                   <div>
                     <h4 className="font-semibold text-gray-800 mb-2">所在地</h4>
                     <p className="text-gray-700">
-                      東京都XXX区XXXX丁目X番X号<br />XXXXビル
+                      東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア
                     </p>
                   </div>
                 </div>
@@ -444,7 +444,7 @@ const HomePage = () => {
               </div>
               <div>
                 <h4 className="font-semibold mb-2">所在地</h4>
-                <p className="text-gray-300">東京都XXX区XXXX丁目X番X号<br />XXXXビル</p>
+                <p className="text-gray-300">東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア</p>
               </div>
               <div>
                 <div className="flex justify-center">

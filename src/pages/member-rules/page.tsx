@@ -336,7 +336,7 @@ const MemberRulesPage = () => {
               </div>
               <div>
                 <h4 className="font-semibold mb-2">所在地</h4>
-                <p className="text-gray-300">東京都XXX区XXXX丁目X番X号<br />XXXXビル</p>
+                <p className="text-gray-300">東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア</p>
               </div>
               <div>
                 <div className="flex justify-center">
