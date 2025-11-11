@@ -22,8 +22,7 @@ const MembershipPage = () => {
   };
 
   const handleGoogleFormOpen = () => {
-    // 仮URL - 後でGoogleフォームのURLに置き換え
-    window.open('https://forms.google.com/placeholder-url', '_blank');
+    window.open('https://forms.gle/PFbRndqP61kjd7gG7', '_blank');
   };
 
   return (
