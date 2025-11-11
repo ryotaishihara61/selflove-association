@@ -261,13 +261,13 @@ const DonationPage = () => {
               <h3 className="text-2xl font-bold">一般社団法人セルフラブ協会</h3>
             </div>
             <p className="text-gray-300 mb-6">Self Love Association Japan</p>
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div>
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {/* <div>
                 <h4 className="font-semibold mb-2">お問い合わせ</h4>
                 <a href="mailto:info@selflove.or.jp" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
                   info@selflove.or.jp
                 </a>
-              </div>
+              </div> */}
               <div>
                 <h4 className="font-semibold mb-2">所在地</h4>
                 <p className="text-gray-300">東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア</p>
