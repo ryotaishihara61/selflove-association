@@ -209,7 +209,7 @@ const HomePage = () => {
               </div>
               <div>
                 <img
-                  src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/19d80fd569bfb64582c97118d3df3e6e.jpeg"
+                  src="/selflove-okura.jpg"
                   alt="協会の活動風景"
                   className="rounded-lg shadow-lg object-cover w-full h-80"
                 />
