@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp                         # まずは ftp でOK（あとで ftps に変えてもよい）
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          server-dir: /                         # 接続テストのみなので固定値でOK
           local-dir: .                          # ルートを適当に指定（dry-runなので中身は使われない）
           dry-run: true                         # ファイルをアップロードせず、接続テストのみ実行
 

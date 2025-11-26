@@ -83,15 +83,15 @@ GitHub Actionsによるデプロイは、以下の手順で自動実行されま
 
 ### 1. `deploy-lolipop.yml`を編集
 
-`.github/workflows/deploy-lolipop.yml:37` の `server-dir` を変更：
+`.github/workflows/deploy-lolipop.yml:43` の `server-dir` を変更：
 
 ```yaml
-server-dir: /selflove/ # アップロード先のサブディレクトリ
+server-dir: /selflove/ # アップロード先のサブディレクトリ（必ず末尾に / が必要）
 ```
 
 ### 2. ビルド設定を変更
 
-`deploy-lolipop.yml:26` のビルドコマンドを変更：
+`deploy-lolipop.yml:28` のビルドコマンドを変更：
 
 ```yaml
 - name: ビルド実行
