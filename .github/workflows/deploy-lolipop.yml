@@ -35,23 +35,43 @@ jobs:
       - name: lftpのインストール
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: ロリポップへデプロイ
+      - name: 音声ファイルのサイズを確認
+        run: du -h out/audio/selflove.wav || echo "音声ファイルが見つかりません"
+
+      - name: ロリポップへデプロイ（音声ファイル除外）
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -c "
+          lftp -d -c "
           set ftp:ssl-allow no;
           set ftp:passive-mode on;
-          set net:timeout 60;
-          set net:max-retries 10;
+          set net:timeout 120;
+          set net:max-retries 2;
           set net:reconnect-interval-base 5;
           set net:reconnect-interval-multiplier 1;
-          set mirror:use-pget-n 1;
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
           lcd ./out;
-          mirror --reverse --verbose --continue --parallel=2 --exclude .git/ --exclude .github/ . .;
+          mirror --reverse --verbose --exclude audio/ --exclude .git/ --exclude .github/ . .;
+          bye
+          "
+
+      - name: 音声ファイルを個別にアップロード
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -d -c "
+          set ftp:ssl-allow no;
+          set ftp:passive-mode on;
+          set net:timeout 300;
+          set net:max-retries 3;
+          open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
+          mkdir -f audio;
+          cd audio;
+          put ./out/audio/selflove.wav;
           bye
           "
 
