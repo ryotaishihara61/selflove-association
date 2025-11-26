@@ -1,0 +1,126 @@
+name: Deploy to Lolipop via WebDAV
+
+on:
+  workflow_dispatch: # 手動実行
+  push:
+    branches:
+      - master # masterブランチへのpushで自動実行
+
+jobs:
+  build-and-deploy:
+    name: ビルド & WebDAVデプロイ
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.jsのセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: ビルド実行
+        run: npm run build
+
+      - name: ビルド成果物の確認
+        run: |
+          echo "📦 ビルド完了。以下のファイルをデプロイします："
+          ls -la out/
+
+      - name: WebDAVディレクトリ事前作成
+        env:
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+        run: |
+          echo "📁 WebDAVディレクトリを事前作成中..."
+
+          # /selflove/assets ディレクトリを作成
+          curl -X MKCOL \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets" || true
+
+          # /selflove/assets/images ディレクトリを作成
+          curl -X MKCOL \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/images" || true
+
+          echo "✅ ディレクトリ作成完了"
+
+      - name: WebDAVでファイルをアップロード
+        env:
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+        run: |
+          echo "📤 WebDAVでファイルをアップロード中..."
+
+          cd out
+
+          # すべてのファイルを検索してアップロード
+          find . -type f | while read -r file; do
+            # ./ を削除してクリーンなパスにする
+            clean_path="${file#./}"
+
+            # ディレクトリ部分を取得
+            dir_path=$(dirname "$clean_path")
+
+            # ディレクトリが . でない場合は、WebDAVで作成
+            if [ "$dir_path" != "." ]; then
+              # ディレクトリ階層を段階的に作成
+              IFS='/' read -ra DIRS <<< "$dir_path"
+              current_path=""
+              for dir in "${DIRS[@]}"; do
+                if [ -n "$current_path" ]; then
+                  current_path="$current_path/$dir"
+                else
+                  current_path="$dir"
+                fi
+
+                curl -X MKCOL \
+                  --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+                  "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/$current_path" 2>/dev/null || true
+              done
+            fi
+
+            # ファイルをアップロード
+            echo "📄 アップロード中: $clean_path"
+            curl -T "$file" \
+              --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+              "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/$clean_path"
+
+            if [ $? -eq 0 ]; then
+              echo "  ✅ 成功: $clean_path"
+            else
+              echo "  ❌ 失敗: $clean_path"
+              exit 1
+            fi
+          done
+
+          echo "✅ すべてのファイルのアップロード完了"
+
+      - name: .htaccessをアップロード
+        env:
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+        run: |
+          echo "📄 .htaccess をアップロード中..."
+
+          curl -T .htaccess \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/.htaccess"
+
+          if [ $? -eq 0 ]; then
+            echo "✅ .htaccess のアップロード完了"
+          else
+            echo "❌ .htaccess のアップロード失敗"
+            exit 1
+          fi
+
+      - name: デプロイ完了
+        run: |
+          echo "✅ ロリポップへのWebDAVデプロイが完了しました"
+          echo "🌐 デプロイ先: https://staba-mahounogakuen.webdav-lolipop.jp/selflove/"
