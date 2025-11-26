@@ -51,8 +51,28 @@ jobs:
           echo "📤 ファイルをアップロード中..."
           echo "📁 アップロード先: $REMOTE_DIR/"
 
-          # outディレクトリ内の全ファイルを再帰的にアップロード
+          # 必要なディレクトリを収集
           cd out
+          echo "📁 ディレクトリ構造を作成中..."
+          find . -type d -not -path '*/\.*' | while read dir; do
+            if [ "$dir" != "." ]; then
+              clean_dir="${dir#./}"
+              remote_dir="$REMOTE_DIR/$clean_dir"
+              echo "  Creating: $remote_dir"
+
+              # FTPでディレクトリを作成（Quote使用）
+              curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
+                --ftp-pasv \
+                "ftp://$FTP_SERVER/" \
+                -Q "MKD $remote_dir" \
+                --silent \
+                --show-error 2>/dev/null || true
+            fi
+          done
+
+          echo "📤 ファイルをアップロード中..."
+
+          # 全ファイルをアップロード
           find . -type f -not -path '*/\.*' | while read file; do
             # 先頭の ./ を削除
             clean_file="${file#./}"
@@ -61,11 +81,10 @@ jobs:
             remote_path="$REMOTE_DIR/$clean_file"
 
             # ファイルをアップロード
-            echo "Uploading: $clean_file → $remote_path"
+            echo "Uploading: $clean_file"
 
-            # curlでアップロード
+            # curlでアップロード（ディレクトリ作成なし）
             curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
-              --ftp-create-dirs \
               --ftp-pasv \
               --upload-file "$file" \
               "ftp://$FTP_SERVER/$remote_path" \
@@ -78,7 +97,7 @@ jobs:
             if [ $? -eq 0 ]; then
               echo "  ✓ Success"
             else
-              echo "  ✗ Failed"
+              echo "  ✗ Failed: $clean_file"
               exit 1
             fi
           done
