@@ -32,22 +32,23 @@ jobs:
           echo "📦 ビルド完了。以下のファイルをデプロイします："
           ls -la out/
 
+      - name: lftpのインストール
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
       - name: ロリポップへデプロイ
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          local-dir: ./out/
-          server-dir: /
-          log-level: verbose                    # 詳細ログを有効化
-          dangerous-clean-slate: true
-          state-name: .ftp-deploy-sync-state.json  # 状態管理ファイル名を明示的に指定
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+          set ftp:ssl-allow no;
+          set net:timeout 10;
+          set net:max-retries 3;
+          open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
+          mirror --reverse --delete --verbose --exclude .git/ --exclude .github/ ./out/ /;
+          bye
+          "
 
       - name: デプロイ完了
         run: echo "✅ ロリポップへのデプロイが完了しました"
