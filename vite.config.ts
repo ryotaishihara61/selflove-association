@@ -70,7 +70,7 @@ export default defineConfig({
     sourcemap: false, // 本番環境ではソースマップを無効化
     outDir: 'out',
     assetsDir: 'assets',
-    minify: 'terser', // より高度な圧縮
+    minify: 'esbuild', // esbuildによる高速圧縮
     rollupOptions: {
       output: {
         // ファイル名のハッシュ化でキャッシュ対策
