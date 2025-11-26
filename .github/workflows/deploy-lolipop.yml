@@ -38,38 +38,52 @@ jobs:
           #!/bin/bash
           set -e
 
-          FTP_URL="ftp://$FTP_SERVER"
-
           echo "📤 ファイルをアップロード中..."
 
           # outディレクトリ内の全ファイルを再帰的にアップロード
           cd out
-          find . -type f | while read file; do
-            # .で始まるファイルは除外
-            if [[ "$file" == ./* ]]; then
-              file="${file:2}"
-            fi
+          find . -type f -not -path '*/\.*' | while read file; do
+            # 先頭の ./ を削除
+            clean_file="${file#./}"
 
-            # ディレクトリを作成（存在しない場合）
-            dir=$(dirname "$file")
-            if [ "$dir" != "." ]; then
+            # ディレクトリ部分を取得
+            dir=$(dirname "$clean_file")
+
+            # ファイルをアップロード
+            echo "Uploading: $clean_file"
+
+            # curlでアップロード
+            # デバッグ: 最初のファイルだけverboseモードで詳細を表示
+            if [ "$clean_file" == "index.html" ]; then
+              echo "  [DEBUG] FTP URL: ftp://$FTP_SERVER/$clean_file"
               curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
                 --ftp-create-dirs \
                 --ftp-pasv \
-                --upload-file /dev/null \
-                "$FTP_URL/$dir/" 2>/dev/null || true
+                --upload-file "$file" \
+                "ftp://$FTP_SERVER/$clean_file" \
+                --max-time 300 \
+                --retry 3 \
+                --retry-delay 5 \
+                --verbose
+            else
+              curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
+                --ftp-create-dirs \
+                --ftp-pasv \
+                --upload-file "$file" \
+                "ftp://$FTP_SERVER/$clean_file" \
+                --max-time 300 \
+                --retry 3 \
+                --retry-delay 5 \
+                --silent \
+                --show-error
             fi
 
-            # ファイルをアップロード
-            echo "Uploading: $file"
-            curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
-              --ftp-create-dirs \
-              --ftp-pasv \
-              --upload-file "$file" \
-              "$FTP_URL/$file" \
-              --max-time 300 \
-              --retry 3 \
-              --retry-delay 5
+            if [ $? -eq 0 ]; then
+              echo "  ✓ Success"
+            else
+              echo "  ✗ Failed"
+              exit 1
+            fi
           done
 
           echo "✅ アップロード完了"
