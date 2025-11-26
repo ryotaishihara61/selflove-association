@@ -38,7 +38,18 @@ jobs:
           #!/bin/bash
           set -e
 
+          # FTP_REMOTE_DIRが設定されていない場合はエラー
+          if [ -z "$FTP_REMOTE_DIR" ]; then
+            echo "❌ エラー: FTP_REMOTE_DIR が設定されていません"
+            echo "GitHub Secrets に FTP_REMOTE_DIR を追加してください（例: public_html または public_html/ など）"
+            exit 1
+          fi
+
+          # 末尾のスラッシュを削除（存在する場合）
+          REMOTE_DIR="${FTP_REMOTE_DIR%/}"
+
           echo "📤 ファイルをアップロード中..."
+          echo "📁 アップロード先: $REMOTE_DIR/"
 
           # outディレクトリ内の全ファイルを再帰的にアップロード
           cd out
@@ -46,37 +57,23 @@ jobs:
             # 先頭の ./ を削除
             clean_file="${file#./}"
 
-            # ディレクトリ部分を取得
-            dir=$(dirname "$clean_file")
+            # アップロード先のフルパス
+            remote_path="$REMOTE_DIR/$clean_file"
 
             # ファイルをアップロード
-            echo "Uploading: $clean_file"
+            echo "Uploading: $clean_file → $remote_path"
 
             # curlでアップロード
-            # デバッグ: 最初のファイルだけverboseモードで詳細を表示
-            if [ "$clean_file" == "index.html" ]; then
-              echo "  [DEBUG] FTP URL: ftp://$FTP_SERVER/$clean_file"
-              curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
-                --ftp-create-dirs \
-                --ftp-pasv \
-                --upload-file "$file" \
-                "ftp://$FTP_SERVER/$clean_file" \
-                --max-time 300 \
-                --retry 3 \
-                --retry-delay 5 \
-                --verbose
-            else
-              curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
-                --ftp-create-dirs \
-                --ftp-pasv \
-                --upload-file "$file" \
-                "ftp://$FTP_SERVER/$clean_file" \
-                --max-time 300 \
-                --retry 3 \
-                --retry-delay 5 \
-                --silent \
-                --show-error
-            fi
+            curl -u "$FTP_USERNAME:$FTP_PASSWORD" \
+              --ftp-create-dirs \
+              --ftp-pasv \
+              --upload-file "$file" \
+              "ftp://$FTP_SERVER/$remote_path" \
+              --max-time 300 \
+              --retry 3 \
+              --retry-delay 5 \
+              --silent \
+              --show-error
 
             if [ $? -eq 0 ]; then
               echo "  ✓ Success"
@@ -96,6 +93,7 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
         run: ./upload.sh
 
       - name: デプロイ完了
