@@ -38,10 +38,12 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp                         # まずは ftp でOK（あとで ftps に変えてもよい）
-          local-dir: ./out/                     # ビルド成果物のディレクトリ
-          server-dir: /                         # ロリポップのアップロード先（サブディレクトリの場合は /selflove/ など、必ず末尾に / が必要）
-          dangerous-clean-slate: true           # 毎回サーバー側のファイルを削除してからアップロード
+          protocol: ftp
+          local-dir: ./out/
+          server-dir: /
+          log-level: verbose                    # 詳細ログを有効化
+          dangerous-clean-slate: true
+          state-name: .ftp-deploy-sync-state.json  # 状態管理ファイル名を明示的に指定
           exclude: |
             **/.git*
             **/.git*/**
