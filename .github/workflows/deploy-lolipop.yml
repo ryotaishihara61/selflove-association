@@ -41,6 +41,7 @@ jobs:
           protocol: ftp                         # まずは ftp でOK（あとで ftps に変えてもよい）
           local-dir: ./out/                     # ビルド成果物のディレクトリ
           server-dir: /                         # ロリポップのアップロード先（サブディレクトリの場合は /selflove/ など、必ず末尾に / が必要）
+          dangerous-clean-slate: true           # 毎回サーバー側のファイルを削除してからアップロード
           exclude: |
             **/.git*
             **/.git*/**
