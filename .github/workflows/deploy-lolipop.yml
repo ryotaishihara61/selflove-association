@@ -38,8 +38,9 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/ # ビルド成果物のディレクトリ
-          server-dir: / # ロリポップのアップロード先（サブディレクトリの場合は /selflove/ など）
+          protocol: ftp                         # まずは ftp でOK（あとで ftps に変えてもよい）
+          local-dir: ./out/                     # ビルド成果物のディレクトリ
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }} # ロリポップのアップロード先
           exclude: |
             **/.git*
             **/.git*/**
