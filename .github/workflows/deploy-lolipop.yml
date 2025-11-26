@@ -46,7 +46,8 @@ jobs:
           set net:timeout 10;
           set net:max-retries 3;
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
-          mirror --reverse --delete --verbose --exclude .git/ --exclude .github/ ./out/ /;
+          pwd;
+          mirror --reverse --delete --verbose --exclude .git/ --exclude .github/ ./out/ .;
           bye
           "
 
