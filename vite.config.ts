@@ -67,8 +67,23 @@ export default defineConfig({
   ],
   base,
   build: {
-    sourcemap: true,
+    sourcemap: false, // 本番環境ではソースマップを無効化
     outDir: 'out',
+    assetsDir: 'assets',
+    minify: 'terser', // より高度な圧縮
+    rollupOptions: {
+      output: {
+        // ファイル名のハッシュ化でキャッシュ対策
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        // 大きなライブラリを別チャンクに分割
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'i18n-vendor': ['react-i18next', 'i18next', 'i18next-browser-languagedetector'],
+        }
+      }
+    }
   },
   resolve: {
     alias: {

@@ -1,0 +1,82 @@
+# ============================================
+# ロリポップ レンタルサーバー用設定
+# React Router (BrowserRouter) 対応
+# ============================================
+
+# mod_rewrite の有効化
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # HTTPS リダイレクト（必要に応じてコメント解除）
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # index.html へのアクセスは直接許可
+  RewriteRule ^index\.html$ - [L]
+
+  # 実際のファイルまたはディレクトリが存在する場合はそのまま配信
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # すべてのリクエストを index.html にリダイレクト（React Router が処理）
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# ============================================
+# パフォーマンス最適化
+# ============================================
+
+# Gzip 圧縮の有効化
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# ブラウザキャッシュの設定
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # 画像ファイル: 1年
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # CSS・JavaScript: 1ヶ月
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # フォント: 1年
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # オーディオ: 1ヶ月
+  ExpiresByType audio/wav "access plus 1 month"
+  ExpiresByType audio/mpeg "access plus 1 month"
+
+  # HTML: キャッシュしない
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ============================================
+# セキュリティ設定
+# ============================================
+
+# ディレクトリリスティングの無効化
+Options -Indexes
+
+# 特定のファイルへのアクセス禁止
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# .htaccess と .htpasswd へのアクセス禁止
+<Files ~ "^\.ht">
+  Order allow,deny
+  Deny from all
+</Files>

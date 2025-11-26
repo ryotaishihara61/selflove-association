@@ -1,0 +1,49 @@
+name: Deploy to Lolipop
+
+on:
+  workflow_dispatch: # 手動実行
+  push:
+    branches:
+      - master # masterブランチへのpushで自動実行
+
+jobs:
+  build-and-deploy:
+    name: ビルド & デプロイ
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.jsのセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: ビルド実行
+        run: npm run build
+
+      - name: ビルド成果物の確認
+        run: |
+          echo "📦 ビルド完了。以下のファイルをデプロイします："
+          ls -la out/
+
+      - name: ロリポップへデプロイ
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/ # ビルド成果物のディレクトリ
+          server-dir: / # ロリポップのアップロード先（サブディレクトリの場合は /selflove/ など）
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+
+      - name: デプロイ完了
+        run: echo "✅ ロリポップへのデプロイが完了しました"
