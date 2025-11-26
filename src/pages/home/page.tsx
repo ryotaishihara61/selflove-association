@@ -27,7 +27,7 @@ const HomePage = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <img
-                src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/1902391d84975e340bd26d675988ae2d.png"
+                src="/assets/images/logo.png"
                 alt="セルフラブ協会ロゴ"
                 className="h-12 w-12 object-contain"
               />
@@ -51,7 +51,7 @@ const HomePage = () => {
                 onClick={() => scrollToSection('special-program')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                特別プログラム
+                代表的な活動
               </button>
               <button
                 onClick={() => scrollToSection('activities')}
@@ -96,7 +96,7 @@ const HomePage = () => {
                   onClick={() => scrollToSection('special-program')}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  特別プログラム
+                  代表的な活動
                 </button>
                 <button
                   onClick={() => scrollToSection('activities')}
@@ -126,7 +126,7 @@ const HomePage = () => {
       <section
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center pt-20"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url('https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/141c6eae142f0a24cf807443340e5732.jpeg')`
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url('/assets/images/hero-background.jpeg')`
         }}
       >
         <div className="container mx-auto px-6 text-center">
@@ -160,59 +160,123 @@ const HomePage = () => {
       {/* 協会について */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-800 mb-12">協会について</h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="text-left">
-                <h3 className="text-2xl font-bold text-pink-600 mb-6">一般社団法人セルフラブ協会</h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  Self Love Association Japan
-                </p>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">設立目的</h4>
-                    <p className="text-gray-700">
-                      自己理解と自己肯定感を高める教育を通じ、心の健康とウェルビーイングを広げる。
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">活動の特徴</h4>
-                    <p className="text-gray-700">
-                      朗読・アート・心理教育・ワークショップ・講師派遣など
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">拠点</h4>
-                    <p className="text-gray-700">
-                      日本（海外教育機関とも連携）
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">法人形態</h4>
-                    <p className="text-gray-700">
-                      非営利型一般社団法人
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">代表理事</h4>
-                    <p className="text-gray-700">
-                      石原 蘭
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">所在地</h4>
-                    <p className="text-gray-700">
-                      東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア
-                    </p>
-                  </div>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-800 text-center mb-4">協会について</h2>
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-pink-600 mb-2">一般社団法人セルフラブ協会</h3>
+              <p className="text-gray-600">Self Love Association Japan</p>
+            </div>
+
+            {/* 活動風景画像 */}
+            <div className="mb-12">
+              <img
+                src="/selflove-okura.jpg"
+                alt="協会の活動風景"
+                className="rounded-2xl shadow-xl object-cover w-full h-96 md:h-[500px]"
+              />
+            </div>
+
+            {/* 設立目的 */}
+            <div className="bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl p-8 md:p-10 mb-8 shadow-sm">
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <i className="ri-heart-line text-2xl text-white"></i>
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-800 mb-3">設立目的</h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    セルフラブ協会は、自己理解・感情理解・対話力など、社会情動的スキル（SEL）を育む教育の普及を目的としています。朗読・物語体験・ワークを通じて、子どもから大人までが"安心して自分を表現できる関係づくり" を促し、学習意欲・自己肯定感・心の健康の向上に寄与します。
+                  </p>
                 </div>
               </div>
-              <div>
-                <img
-                  src="/selflove-okura.jpg"
-                  alt="協会の活動風景"
-                  className="rounded-lg shadow-lg object-cover w-full h-80"
-                />
+            </div>
+
+            {/* 2カラムグリッド */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* 活動の特徴 */}
+              <div className="bg-white border-2 border-pink-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                    <i className="ri-star-line text-xl text-orange-600"></i>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-800">活動の特徴</h4>
+                </div>
+                <ul className="text-gray-700 space-y-2">
+                  <li className="flex items-start">
+                    <i className="ri-checkbox-circle-fill text-pink-500 mr-2 mt-1 flex-shrink-0"></i>
+                    <span>朗読・アート・心理教育・ワークショップ・講師派遣など</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-checkbox-circle-fill text-pink-500 mr-2 mt-1 flex-shrink-0"></i>
+                    <span>学校・教育機関・地域団体へのワークショップ、研修、講師派遣</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-checkbox-circle-fill text-pink-500 mr-2 mt-1 flex-shrink-0"></i>
+                    <span>海外（カンボジア）を含む教育機関との連携</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-checkbox-circle-fill text-pink-500 mr-2 mt-1 flex-shrink-0"></i>
+                    <span>心理的安全性と教育効果に配慮したプログラム設計・少人数運営</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 拠点と法人形態 */}
+              <div className="space-y-6">
+                <div className="bg-white border-2 border-blue-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                      <i className="ri-map-pin-line text-xl text-blue-600"></i>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-800">拠点</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    日本全国およびオンラインで活動し、海外の教育機関（カンボジア）とも連携しています。
+                  </p>
+                </div>
+
+                <div className="bg-white border-2 border-purple-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-3">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                      <i className="ri-building-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-800">法人形態</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    非営利型一般社団法人
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 代表理事について */}
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 md:p-10 mb-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <i className="ri-user-heart-line text-2xl text-white"></i>
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-800 mb-3">代表理事について</h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    <span className="font-bold text-pink-700">石原 蘭（Ran Ishihara）</span><br />
+                    セルフラブ講師・研修講師。創作絵本『ビビアン』共著者。20年間で約2万人の自己理解・対話支援に携わり、教育・企業・地域を対象とした研修や講座の実績を持つ。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 運営体制 */}
+            <div className="bg-white border-2 border-green-100 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start">
+                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                  <i className="ri-team-line text-xl text-green-600"></i>
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-gray-800 mb-3">運営体制</h4>
+                  <p className="text-gray-700">
+                    代表理事を中心とした少人数の運営チームで事業を実施しています。活動内容に応じて教育・福祉・地域支援の専門家とも連携し、安全で質の高い学びの場を提供しています。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -224,7 +288,7 @@ const HomePage = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">特別プログラム</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">代表的な活動</h2>
               <p className="text-xl text-gray-700">セルフラブ教育の核となる朗読ワークショップ</p>
             </div>
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -286,7 +350,7 @@ const HomePage = () => {
                 </div>
                 <div className="relative">
                   <img
-                    src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/73cee288bc799de519e17daf49b813a4.png"
+                    src="/assets/images/vivian-workshop.png"
                     alt="ビビアンの朗読ワークショップ"
                     className="w-full h-full object-cover object-top"
                   />
@@ -408,15 +472,26 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <button
-                onClick={() => {
-                  navigate('/membership');
-                  window.scrollTo(0, 0);
-                }}
-                className="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
-              >
-                入会案内の詳細を見る
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => {
+                    navigate('/membership');
+                    window.scrollTo(0, 0);
+                  }}
+                  className="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+                >
+                  入会案内の詳細を見る
+                </button>
+                <a
+                  href="https://forms.gle/kCDf1q5d8fp72zXa7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+                >
+                  今すぐ入会する
+                  <i className="ri-external-link-line ml-2"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -428,28 +503,34 @@ const HomePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center space-x-4 mb-4">
               <img
-                src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/1902391d84975e340bd26d675988ae2d.png"
+                src="/assets/images/logo.png"
                 alt="セルフラブ協会ロゴ"
                 className="h-10 w-10 object-contain"
               />
               <h3 className="text-2xl font-bold">一般社団法人セルフラブ協会</h3>
             </div>
             <p className="text-gray-300 mb-6">Self Love Association Japan</p>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {/* <div>
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div>
                 <h4 className="font-semibold mb-2">お問い合わせ</h4>
                 <a href="mailto:info@selflove.or.jp" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
                   info@selflove.or.jp
                 </a>
-              </div> */}
+              </div>
               <div>
                 <h4 className="font-semibold mb-2">所在地</h4>
                 <p className="text-gray-300">東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア</p>
               </div>
               <div>
+                <h4 className="font-semibold mb-2">SNS</h4>
                 <div className="flex justify-center">
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
-                    <i className="ri-instagram-line text-2xl"></i>
+                  <a
+                    href="https://www.instagram.com/selflove.laboratory/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-xl hover:shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer"
+                  >
+                    <i className="ri-instagram-fill text-4xl text-white"></i>
                   </a>
                 </div>
               </div>

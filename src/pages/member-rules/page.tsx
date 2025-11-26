@@ -29,7 +29,7 @@ const MemberRulesPage = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <img
-                src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/1902391d84975e340bd26d675988ae2d.png"
+                src="/assets/images/logo.png"
                 alt="セルフラブ協会ロゴ"
                 className="h-12 w-12 object-contain"
               />
@@ -59,7 +59,7 @@ const MemberRulesPage = () => {
                 onClick={() => handleNavigateWithScroll('/', 'special-program')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                特別プログラム
+                代表的な活動
               </button>
               <button
                 onClick={() => handleNavigateWithScroll('/', 'activities')}
@@ -110,7 +110,7 @@ const MemberRulesPage = () => {
                   onClick={() => handleNavigateWithScroll('/', 'special-program')}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  特別プログラム
+                  代表的な活動
                 </button>
                 <button
                   onClick={() => handleNavigateWithScroll('/', 'activities')}
@@ -320,28 +320,34 @@ const MemberRulesPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center space-x-4 mb-4">
               <img
-                src="https://static.readdy.ai/image/eaa52119033ac8864aa00eb190fc57f3/1902391d84975e340bd26d675988ae2d.png"
+                src="/assets/images/logo.png"
                 alt="セルフラブ協会ロゴ"
                 className="h-10 w-10 object-contain"
               />
               <h3 className="text-2xl font-bold">一般社団法人セルフラブ協会</h3>
             </div>
             <p className="text-gray-300 mb-6">Self Love Association Japan</p>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {/* <div>
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div>
                 <h4 className="font-semibold mb-2">お問い合わせ</h4>
                 <a href="mailto:info@selflove.or.jp" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
                   info@selflove.or.jp
                 </a>
-              </div> */}
+              </div>
               <div>
                 <h4 className="font-semibold mb-2">所在地</h4>
                 <p className="text-gray-300">東京都千代田区九段南一丁目5番6号<br />りそな九段ビル5階KSフロア</p>
               </div>
               <div>
+                <h4 className="font-semibold mb-2">SNS</h4>
                 <div className="flex justify-center">
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors cursor-pointer">
-                    <i className="ri-instagram-line text-2xl"></i>
+                  <a
+                    href="https://www.instagram.com/selflove.laboratory/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-xl hover:shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer"
+                  >
+                    <i className="ri-instagram-fill text-4xl text-white"></i>
                   </a>
                 </div>
               </div>
