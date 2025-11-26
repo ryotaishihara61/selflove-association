@@ -43,11 +43,13 @@ jobs:
         run: |
           lftp -c "
           set ftp:ssl-allow no;
-          set net:timeout 10;
-          set net:max-retries 3;
+          set net:timeout 30;
+          set net:max-retries 5;
+          set net:reconnect-interval-base 5;
+          set net:reconnect-interval-multiplier 1;
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
-          pwd;
-          mirror --reverse --delete --verbose --exclude .git/ --exclude .github/ ./out/ .;
+          lcd ./out;
+          mirror --reverse --delete --verbose --parallel=1 --exclude .git/ --exclude .github/ . .;
           bye
           "
 
