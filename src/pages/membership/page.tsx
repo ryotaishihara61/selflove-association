@@ -170,7 +170,6 @@ const MembershipPage = () => {
                     </div>
                     <div className="mt-4 text-sm text-gray-600 space-y-1">
                       <p>※法人会員は複数口の申込が可能です</p>
-                      <p>※会費は原則として返還いたしません</p>
                     </div>
                   </div>
                 </div>

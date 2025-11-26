@@ -21,10 +21,6 @@ const DonationPage = () => {
     }
   };
 
-  const handleDonationFormOpen = () => {
-    // 仮URL - 後でGoogleフォームのURLに置き換え
-    window.open('https://forms.google.com/donation-placeholder-url', '_blank');
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-orange-50">
@@ -217,30 +213,19 @@ const DonationPage = () => {
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">ご支援をお願いいたします</h3>
                   <p className="text-gray-700 mb-8 leading-relaxed">
                     セルフラブ教育の普及のために、皆様のあたたかいご支援をお願いいたします。<br />
-                    寄付申込フォームにご記入いただき、送信してください。
+                    寄付に関するお問い合わせは、以下のメールアドレスまでご連絡ください。
                   </p>
-                  <button
-                    onClick={handleDonationFormOpen}
+                  <a
+                    href="mailto:info@selflove.or.jp?subject=寄付に関するお問い合わせ"
                     className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
                   >
-                    <i className="ri-external-link-line mr-2"></i>
-                    寄付申込フォームを開く
-                  </button>
+                    <i className="ri-mail-line mr-2"></i>
+                    メールで問い合わせる
+                  </a>
                   <p className="text-gray-500 text-sm mt-4">
-                    ※外部サイト（Googleフォーム）が開きます
+                    メールアドレス：info@selflove.or.jp
                   </p>
                 </div>
-              </div>
-            </section>
-
-            {/* 税制優遇について */}
-            <section className="mt-16">
-              <div className="bg-blue-50 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">税制優遇について</h3>
-                <p className="text-gray-700 text-center leading-relaxed">
-                  当協会は一般社団法人のため、現在のところ寄付金控除の対象ではございません。<br />
-                  将来的に公益社団法人への移行を検討しており、その際は税制優遇措置の適用を予定しております。
-                </p>
               </div>
             </section>
 
