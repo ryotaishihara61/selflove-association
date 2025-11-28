@@ -196,7 +196,14 @@ const MembershipPage = () => {
                 {/* 全会員共通の権利 */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-pink-600 mb-6 text-center">全会員共通</h3>
-                  <div className="grid md:grid-cols-4 gap-6">
+                  <div className="grid md:grid-cols-5 gap-6">
+                    <div className="bg-white rounded-lg p-6 shadow-md">
+                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i className="ri-id-card-line text-blue-600 text-xl"></i>
+                      </div>
+                      <h4 className="font-bold text-gray-800 mb-2">会員証の発行</h4>
+                      <p className="text-gray-700 text-sm">協会オリジナルデザインのオンライン会員証を発行</p>
+                    </div>
                     <div className="bg-white rounded-lg p-6 shadow-md">
                       <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4">
                         <i className="ri-calendar-event-line text-pink-600 text-xl"></i>
