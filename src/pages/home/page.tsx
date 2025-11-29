@@ -131,13 +131,11 @@ const HomePage = () => {
       >
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight" style={{ fontFamily: '"Hiragino Sans", "Noto Sans JP", sans-serif', textShadow: '2px 2px 8px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7)' }}>
-              自分を愛することから、<br className="hidden sm:block" />
-              <span className="block sm:inline">学びは始まる</span>
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight" style={{ fontFamily: '"Hiragino Sans", "Noto Sans JP", sans-serif', textShadow: '2px 2px 8px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7)' }}>
+              「正直に感じていい」
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed" style={{ textShadow: '1px 1px 6px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 255, 255, 0.7)' }}>
-              セルフラブ教育を通じて、<br className="sm:hidden" />子どもも大人も<br />
-              「ありのままの自分」を<br className="sm:hidden" />育てる社会へ
+              子どもも大人も、安心して"ありのまま"を生きられる社会へ
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
