@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './router'
 import ThemeSongPlayer from './components/ThemeSongPlayer'
 import ScrollToTop from './components/ScrollToTop'
+import BlogBanner from './components/BlogBanner'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <AppRoutes />
         </div>
         <ThemeSongPlayer />
+        <BlogBanner />
       </div>
     </BrowserRouter>
   )
