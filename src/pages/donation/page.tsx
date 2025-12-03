@@ -57,17 +57,19 @@ const DonationPage = () => {
                 協会について
               </button>
               <button
-                onClick={() => handleNavigateWithScroll('/', 'special-program')}
+                onClick={() => navigate('/vivian')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                代表的な活動
+                ビビアン朗読ワーク
               </button>
-              <button
-                onClick={() => handleNavigateWithScroll('/', 'activities')}
+              <a
+                href="https://note.com/ran_ishihara"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                活動紹介
-              </button>
+                Blog
+              </a>
               <button
                 onClick={() => navigate('/membership')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
@@ -76,7 +78,7 @@ const DonationPage = () => {
               </button>
               <button
                 onClick={() => navigate('/donation')}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer"
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
                 寄付
               </button>
@@ -108,17 +110,22 @@ const DonationPage = () => {
                   協会について
                 </button>
                 <button
-                  onClick={() => handleNavigateWithScroll('/', 'special-program')}
+                  onClick={() => {
+                    navigate('/vivian');
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  代表的な活動
+                  ビビアン朗読ワーク
                 </button>
-                <button
-                  onClick={() => handleNavigateWithScroll('/', 'activities')}
+                <a
+                  href="https://note.com/ran_ishihara"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  活動紹介
-                </button>
+                  Blog
+                </a>
                 <button
                   onClick={() => navigate('/membership')}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
@@ -126,8 +133,11 @@ const DonationPage = () => {
                   入会案内
                 </button>
                 <button
-                  onClick={() => navigate('/donation')}
-                  className="text-left bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer w-fit"
+                  onClick={() => {
+                    navigate('/donation');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
                   寄付
                 </button>

@@ -60,16 +60,24 @@ const MembershipPage = () => {
                 協会について
               </button>
               <button
-                onClick={() => handleNavigateWithScroll('/', 'special-program')}
+                onClick={() => navigate('/vivian')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                代表的な活動
+                ビビアン朗読ワーク
               </button>
-              <button
-                onClick={() => handleNavigateWithScroll('/', 'activities')}
+              <a
+                href="https://note.com/ran_ishihara"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                活動紹介
+                Blog
+              </a>
+              <button
+                onClick={() => navigate('/membership')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                入会案内
               </button>
               <button
                 onClick={() => navigate('/donation')}
@@ -105,19 +113,33 @@ const MembershipPage = () => {
                   協会について
                 </button>
                 <button
-                  onClick={() => handleNavigateWithScroll('/', 'special-program')}
+                  onClick={() => {
+                    navigate('/vivian');
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  代表的な活動
+                  ビビアン朗読ワーク
                 </button>
-                <button
-                  onClick={() => handleNavigateWithScroll('/', 'activities')}
+                <a
+                  href="https://note.com/ran_ishihara"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  活動紹介
+                  Blog
+                </a>
+                <button
+                  onClick={() => navigate('/membership')}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  入会案内
                 </button>
                 <button
-                  onClick={() => navigate('/donation')}
+                  onClick={() => {
+                    navigate('/donation');
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
                   寄付

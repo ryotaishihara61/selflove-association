@@ -5,6 +5,7 @@ import Home from "../pages/home/page";
 import Membership from "../pages/membership/page";
 import MemberRules from "../pages/member-rules/page";
 import Donation from "../pages/donation/page";
+import Vivian from "../pages/vivian/page";
 
 const routes: RouteObject[] = [
   {
@@ -22,6 +23,10 @@ const routes: RouteObject[] = [
   {
     path: "/donation",
     element: <Donation />,
+  },
+  {
+    path: "/vivian",
+    element: <Vivian />,
   },
   {
     path: "*",

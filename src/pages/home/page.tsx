@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import VivianNews from '../../components/vivian/VivianNews';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -48,17 +49,19 @@ const HomePage = () => {
                 協会について
               </button>
               <button
-                onClick={() => scrollToSection('special-program')}
+                onClick={() => navigate('/vivian')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                代表的な活動
+                ビビアン朗読ワーク
               </button>
-              <button
-                onClick={() => scrollToSection('activities')}
+              <a
+                href="https://note.com/ran_ishihara"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                活動紹介
-              </button>
+                Blog
+              </a>
               <button
                 onClick={() => navigate('/membership')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
@@ -67,7 +70,7 @@ const HomePage = () => {
               </button>
               <button
                 onClick={() => navigate('/donation')}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer"
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
                 寄付
               </button>
@@ -93,17 +96,22 @@ const HomePage = () => {
                   協会について
                 </button>
                 <button
-                  onClick={() => scrollToSection('special-program')}
+                  onClick={() => {
+                    navigate('/vivian');
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  代表的な活動
+                  ビビアン朗読ワーク
                 </button>
-                <button
-                  onClick={() => scrollToSection('activities')}
+                <a
+                  href="https://note.com/ran_ishihara"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  活動紹介
-                </button>
+                  Blog
+                </a>
                 <button
                   onClick={handleNavigateToMembership}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
@@ -111,8 +119,11 @@ const HomePage = () => {
                   入会案内
                 </button>
                 <button
-                  onClick={() => navigate('/donation')}
-                  className="text-left bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer w-fit"
+                  onClick={() => {
+                    navigate('/donation');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
                   寄付
                 </button>
@@ -154,6 +165,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Vivianからのお知らせ */}
+      <VivianNews />
 
       {/* 協会について */}
       <section id="about" className="py-20 bg-white">
@@ -249,14 +263,24 @@ const HomePage = () => {
 
             {/* 代表理事について */}
             <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 md:p-10 mb-6 shadow-sm">
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <i className="ri-user-heart-line text-2xl text-white"></i>
+              <h4 className="text-2xl font-bold text-gray-800 mb-6 text-center">代表理事について</h4>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* 写真 */}
+                <div className="flex justify-center">
+                  <img
+                    src="/assets/images/ran-prof.jpg"
+                    alt="代表理事 石原 蘭"
+                    className="rounded-2xl shadow-lg object-cover w-full max-w-sm h-auto"
+                  />
                 </div>
+
+                {/* プロフィール情報 */}
                 <div>
-                  <h4 className="text-xl font-bold text-gray-800 mb-3">代表理事について</h4>
-                  <p className="text-gray-700 leading-relaxed">
-                    <span className="font-bold text-pink-700">石原 蘭（Ran Ishihara）</span><br />
+                  <div className="mb-4">
+                    <h5 className="text-2xl font-bold text-pink-700 mb-2">石原 蘭（Ran Ishihara）</h5>
+                    <p className="text-gray-600 text-lg">代表理事</p>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-lg">
                     セルフラブ講師・研修講師。創作絵本『ビビアン』共著者。20年間で約2万人の自己理解・対話支援に携わり、教育・企業・地域を対象とした研修や講座の実績を持つ。
                   </p>
                 </div>
