@@ -355,6 +355,9 @@ const HomePage = () => {
                         <p className="text-gray-700 text-sm">山形県公立小学校</p>
                       </div>
                       <div className="bg-pink-50 rounded-lg px-4 py-2">
+                        <p className="text-gray-700 text-sm">CIESF Leaders Academy（Cambodia）</p>
+                      </div>
+                      <div className="bg-pink-50 rounded-lg px-4 py-2">
                         <p className="text-gray-700 text-sm">他</p>
                       </div>
                     </div>
