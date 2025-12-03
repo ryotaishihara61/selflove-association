@@ -9,6 +9,10 @@ const VivianNews = () => {
 
   const newsItems = [
     {
+      date: "2025.12.02",
+      content: "CIESF Leaders Academy (Cambodia) の小学生・中学生を向けにビビアン朗読ワークを実施しました"
+    },
+    {
       date: "2025.11.28",
       content: (
         <>
