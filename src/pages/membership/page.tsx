@@ -257,6 +257,23 @@ const MembershipPage = () => {
                   </div>
                 </div>
 
+                {/* 会員証サンプル */}
+                <div className="mb-8 mt-8">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">オリジナル会員証デザイン（サンプル）</h3>
+                  <div className="flex justify-center">
+                    <div className="max-w-md w-full">
+                      <img
+                        src="/membercard.png"
+                        alt="セルフラブ協会会員証サンプル"
+                        className="w-full h-auto rounded-2xl shadow-xl"
+                      />
+                      <p className="text-gray-600 text-sm text-center mt-3">
+                        入会後、オンライン会員証を発行いたします
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* 法人会員の追加権利 */}
                 <div>
                   <h3 className="text-xl font-bold text-purple-600 mb-6 text-center">法人会員</h3>
