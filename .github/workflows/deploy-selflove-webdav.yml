@@ -61,12 +61,13 @@ jobs:
           # index.htmlを削除
           curl -X DELETE \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
-            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/index.html" || true
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/index.html" 2>/dev/null || true
 
-          # assetsディレクトリを削除（古いJSファイルを含む）
+          # assetsディレクトリを再帰的に削除（Depth: infinityヘッダー付き）
           curl -X DELETE \
+            -H "Depth: infinity" \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
-            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/" || true
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/" 2>/dev/null || true
 
           echo "✅ クリーンアップ完了"
 
