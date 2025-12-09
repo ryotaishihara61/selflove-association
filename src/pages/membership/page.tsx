@@ -278,7 +278,7 @@ const MembershipPage = () => {
                   <div className="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i className="ri-user-line text-3xl text-pink-600"></i>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">個人会員の入会申込</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">個人会員申込みフォーム</h3>
                   <div className="mb-6">
                     <span className="inline-block bg-pink-100 text-pink-700 px-6 py-2 rounded-full font-bold text-lg">
                       個人会員は無料です
@@ -290,10 +290,10 @@ const MembershipPage = () => {
                   </p>
                   <button
                     onClick={handleGoogleFormOpen}
-                    className="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
+                    className="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors cursor-pointer inline-flex items-center"
                   >
                     <i className="ri-external-link-line mr-2"></i>
-                    個人会員申込フォームを開く
+                    申込フォームを開く
                   </button>
                   <p className="text-gray-500 text-sm mt-4">
                     ※外部サイト（Googleフォーム）が開きます
