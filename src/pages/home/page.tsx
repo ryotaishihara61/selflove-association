@@ -54,12 +54,6 @@ const HomePage = () => {
               >
                 ビビアン朗読ワーク
               </button>
-              <button
-                onClick={() => navigate('/for-teachers')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                先生の皆さまへ
-              </button>
               <a
                 href="https://note.com/ran_ishihara"
                 target="_blank"
@@ -109,15 +103,6 @@ const HomePage = () => {
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
                   ビビアン朗読ワーク
-                </button>
-                <button
-                  onClick={() => {
-                    navigate('/for-teachers');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  先生の皆さまへ
                 </button>
                 <a
                   href="https://note.com/ran_ishihara"
