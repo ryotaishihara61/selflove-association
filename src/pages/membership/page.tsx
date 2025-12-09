@@ -165,7 +165,7 @@ const MembershipPage = () => {
             {/* 会員特典 */}
             <section className="mb-16">
               <div className="bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl p-10">
-                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">会員の権利</h2>
+                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">会員特典</h2>
                 
                 {/* 全会員共通の権利 */}
                 <div className="mb-8">
