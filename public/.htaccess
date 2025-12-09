@@ -71,12 +71,10 @@ Options -Indexes
 
 # 特定のファイルへのアクセス禁止
 <FilesMatch "^\.">
-  Order allow,deny
-  Deny from all
+  Require all denied
 </FilesMatch>
 
 # .htaccess と .htpasswd へのアクセス禁止
 <Files ~ "^\.ht">
-  Order allow,deny
-  Deny from all
+  Require all denied
 </Files>
