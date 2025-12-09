@@ -51,6 +51,25 @@ jobs:
 
           echo "✅ ディレクトリ作成完了"
 
+      - name: 古いファイルをクリーンアップ
+        env:
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+        run: |
+          echo "🧹 古いファイルをクリーンアップ中..."
+
+          # index.htmlを削除
+          curl -X DELETE \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/index.html" || true
+
+          # assetsディレクトリを削除（古いJSファイルを含む）
+          curl -X DELETE \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/" || true
+
+          echo "✅ クリーンアップ完了"
+
       - name: WebDAVでファイルをアップロード
         env:
           WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
