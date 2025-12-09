@@ -162,54 +162,6 @@ const MembershipPage = () => {
               </p>
             </div>
 
-            {/* 入会について */}
-            <section className="mb-16">
-              <div className="bg-white rounded-2xl shadow-lg p-10">
-                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">入会について</h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-bold text-pink-600 mb-4">入会資格（例）</h3>
-                    <p className="text-gray-700 mb-4">活動理念に賛同する法人・教育関係者・個人</p>
-                    <ul className="text-gray-700 space-y-2">
-                      <li>・セルフラブ教育の理念に賛同する法人</li>
-                      <li>・教育関係者（教師、カウンセラー等）</li>
-                      <li>・セルフラブ教育の理念に賛同する個人</li>
-                      <li>・子育て中の保護者</li>
-                      <li>・セルフラブ教育活動者を目指す学生</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-orange-600 mb-4">会費</h3>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-700">法人会員</span>
-                        <span className="font-semibold text-gray-800">1口 50,000円</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-700">個人会員</span>
-                        <span className="font-semibold text-gray-800">当面の間 無料</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 text-sm text-gray-600 space-y-1">
-                      <p>※法人会員は複数口の申込が可能です</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 会員規則へのリンク */}
-                <div className="mt-8 pt-6 border-t border-gray-200 text-center">
-                  <p className="text-gray-700 mb-4">入会前に必ずご確認ください</p>
-                  <button
-                    onClick={() => navigate('/member-rules')}
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
-                  >
-                    <i className="ri-file-text-line mr-2"></i>
-                    会員規則を確認する
-                  </button>
-                </div>
-              </div>
-            </section>
-
             {/* 会員特典 */}
             <section className="mb-16">
               <div className="bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl p-10">
@@ -218,7 +170,7 @@ const MembershipPage = () => {
                 {/* 全会員共通の権利 */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-pink-600 mb-6 text-center">全会員共通</h3>
-                  <div className="grid md:grid-cols-5 gap-6">
+                  <div className="grid md:grid-cols-3 gap-6">
                     <div className="bg-white rounded-lg p-6 shadow-md">
                       <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                         <i className="ri-id-card-line text-blue-600 text-xl"></i>
@@ -253,6 +205,13 @@ const MembershipPage = () => {
                       </div>
                       <h4 className="font-bold text-gray-800 mb-2">優先情報提供</h4>
                       <p className="text-gray-700 text-sm">協会の活動報告・講座情報等の優先提供</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-6 shadow-md">
+                      <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <i className="ri-music-line text-indigo-600 text-xl"></i>
+                      </div>
+                      <h4 className="font-bold text-gray-800 mb-2">テーマソング音源</h4>
+                      <p className="text-gray-700 text-sm">協会テーマソング「Selflove」の歌詞付き音源をプレゼント</p>
                     </div>
                   </div>
                 </div>
@@ -301,25 +260,65 @@ const MembershipPage = () => {
             <section>
               <div className="bg-white rounded-2xl shadow-lg p-10">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">入会申込フォーム</h2>
-                <div className="text-center py-12">
+
+                {/* 会員規則へのリンク */}
+                <div className="mb-8 pb-8 border-b border-gray-200 text-center">
+                  <p className="text-gray-700 mb-4">入会前に必ずご確認ください</p>
+                  <button
+                    onClick={() => navigate('/member-rules')}
+                    className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
+                  >
+                    <i className="ri-file-text-line mr-2"></i>
+                    会員規則を確認する
+                  </button>
+                </div>
+
+                {/* 個人会員申込 */}
+                <div className="text-center py-12 border-b border-gray-200">
                   <div className="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i className="ri-file-text-line text-3xl text-pink-600"></i>
+                    <i className="ri-user-line text-3xl text-pink-600"></i>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">入会申込はこちら</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">個人会員の入会申込</h3>
+                  <div className="mb-6">
+                    <span className="inline-block bg-pink-100 text-pink-700 px-6 py-2 rounded-full font-bold text-lg">
+                      個人会員は無料です
+                    </span>
+                  </div>
                   <p className="text-gray-700 mb-8 leading-relaxed">
                     入会申込フォームにご記入いただき、送信してください。<br />
                     担当者より3営業日以内にご連絡いたします。
                   </p>
                   <button
                     onClick={handleGoogleFormOpen}
-                    className="bg-pink-500 hover:bg-pink-6
-                    text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
+                    className="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
                   >
                     <i className="ri-external-link-line mr-2"></i>
-                    入会申込フォームを開く
+                    個人会員申込フォームを開く
                   </button>
                   <p className="text-gray-500 text-sm mt-4">
                     ※外部サイト（Googleフォーム）が開きます
+                  </p>
+                </div>
+
+                {/* 法人会員申込 */}
+                <div className="text-center py-12">
+                  <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i className="ri-building-line text-3xl text-purple-600"></i>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">法人会員の入会申込</h3>
+                  <p className="text-gray-700 mb-8 leading-relaxed">
+                    法人会員の入会をご希望の方は、下記メールアドレスまでお問い合わせください。<br />
+                    担当者より詳細をご案内いたします。
+                  </p>
+                  <a
+                    href="mailto:info@selflove.or.jp?subject=法人会員入会について"
+                    className="bg-purple-500 hover:bg-purple-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer inline-flex items-center"
+                  >
+                    <i className="ri-mail-line mr-2"></i>
+                    メールで問い合わせる
+                  </a>
+                  <p className="text-gray-500 text-sm mt-4">
+                    info@selflove.or.jp
                   </p>
                 </div>
               </div>
