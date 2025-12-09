@@ -54,6 +54,12 @@ const HomePage = () => {
               >
                 ビビアン朗読ワーク
               </button>
+              <button
+                onClick={() => navigate('/for-teachers')}
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                先生の皆さまへ
+              </button>
               <a
                 href="https://note.com/ran_ishihara"
                 target="_blank"
@@ -103,6 +109,15 @@ const HomePage = () => {
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
                   ビビアン朗読ワーク
+                </button>
+                <button
+                  onClick={() => {
+                    navigate('/for-teachers');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  先生の皆さまへ
                 </button>
                 <a
                   href="https://note.com/ran_ishihara"
@@ -451,70 +466,6 @@ const HomePage = () => {
                 <p className="text-gray-700">
                   専門講師による出張授業や研修プログラムの提供。
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 入会案内セクション */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-800 mb-12">入会案内</h2>
-            <div className="bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl p-12">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">セルフラブ教育を広める仲間を募集しています</h3>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                私たちと一緒に、自己理解と自己肯定感を育む教育を広めませんか？<br />
-                活動理念に賛同する個人・教育関係者・団体の皆様のご参加をお待ちしています。
-              </p>
-              <div className="grid md:grid-cols-2 gap-8 mb-10">
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                  <h4 className="text-xl font-bold text-gray-800 mb-4">入会資格（例）</h4>
-                  <ul className="text-gray-700 text-left space-y-2">
-                    <li>・セルフラブ教育の理念に賛同する法人</li>
-                    <li>・教育関係者（教師、カウンセラー等）</li>
-                    <li>・セルフラブ教育の理念に賛同する個人</li>
-                    <li>・子育て中の保護者</li>
-                    <li>・セルフラブ教育活動者を目指す学生</li>
-                  </ul>
-                </div>
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                  <h4 className="text-xl font-bold text-gray-800 mb-4">会費</h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">法人会員</span>
-                      <span className="font-semibold text-gray-800">1口 50,000円</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">個人会員</span>
-                      <span className="font-semibold text-gray-800">当面の間 無料</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 text-sm text-gray-600 space-y-1">
-                    <p>※法人会員は複数口の申込が可能です</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => {
-                    navigate('/membership');
-                    window.scrollTo(0, 0);
-                  }}
-                  className="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
-                >
-                  入会案内の詳細を見る
-                </button>
-                <a
-                  href="https://forms.gle/kCDf1q5d8fp72zXa7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
-                >
-                  今すぐ入会する
-                  <i className="ri-external-link-line ml-2"></i>
-                </a>
               </div>
             </div>
           </div>
