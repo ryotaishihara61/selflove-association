@@ -6,7 +6,7 @@
 # mod_rewrite の有効化
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /selflove/
+  RewriteBase /
 
   # HTTPS リダイレクト（必要に応じてコメント解除）
   # RewriteCond %{HTTPS} off
@@ -20,7 +20,7 @@
   RewriteCond %{REQUEST_FILENAME} !-d
 
   # すべてのリクエストを index.html にリダイレクト（React Router が処理）
-  RewriteRule . /selflove/index.html [L]
+  RewriteRule . /index.html [L]
 </IfModule>
 
 # ============================================
