@@ -10,7 +10,19 @@ const VivianNews = () => {
   const newsItems = [
     {
       date: "2025.12.02",
-      content: "CIESF Leaders Academy (Cambodia) の小学生・中学生を向けにビビアン朗読ワークを実施しました"
+      content: (
+        <>
+          CIESF Leaders Academy (Cambodia) の小学生・中学生を向けにビビアン朗読ワークを実施しました。
+          <a
+            href="https://www.facebook.com/CLAkindergarten/posts/pfbid0j48BpQ9mxz4L1Xz4pJSPRn4WseWZJnF5hQaQ84hhH6Aun9nhfxKk7Yhj4QF5hetKl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-600 hover:text-purple-800 underline"
+          >
+            授業の様子
+          </a>
+        </>
+      )
     },
     {
       date: "2025.11.28",
