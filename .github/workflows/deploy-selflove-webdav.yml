@@ -63,6 +63,11 @@ jobs:
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/index.html" 2>/dev/null || true
 
+          # sitemap.xmlを削除
+          curl -X DELETE \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/sitemap.xml" 2>/dev/null || true
+
           # assetsディレクトリを再帰的に削除（Depth: infinityヘッダー付き）
           curl -X DELETE \
             -H "Depth: infinity" \
