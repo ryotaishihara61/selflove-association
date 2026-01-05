@@ -74,13 +74,16 @@ button {
 
 .vivian-btn {
   display: inline-block;
-  padding: 16px 32px;
+  padding: 14px 24px;
   border-radius: 9999px;
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-align: center;
   transition: all 0.3s ease;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.4;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .vivian-btn-primary {
@@ -95,8 +98,8 @@ button {
 }
 
 .vivian-btn-large {
-  padding: 20px 48px;
-  font-size: 1.25rem;
+  padding: 16px 32px;
+  font-size: 1.125rem;
 }
 
 /* =====================================================
@@ -1224,6 +1227,18 @@ button {
 
   .vivian-section-title {
     font-size: 3rem;
+  }
+
+  /* ボタン：タブレット以上 */
+  .vivian-btn {
+    padding: 16px 32px;
+    font-size: 1.125rem;
+    white-space: nowrap;
+  }
+
+  .vivian-btn-large {
+    padding: 20px 48px;
+    font-size: 1.25rem;
   }
 
   /* ヒーロー：タブレット以上 */
