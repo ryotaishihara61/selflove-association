@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R11PBLN39K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R11PBLN39K');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビビアン教育OS - 先生向け勉強会 | 一般社団法人セルフラブ協会</title>
+  <meta name="description" content="教室に「話し合える空気」をつくる。たった10分から始める、教育のOS。絵本×朗読×対話で、子どもと先生のウェルビーイングを整えるビビアン教育OS。先生向け勉強会開催中。">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="vivian-header">
+    <div class="vivian-container">
+      <div class="vivian-header-content">
+        <div class="vivian-logo-area">
+          <a href="/" class="vivian-logo-link">
+            <img src="/assets/images/logo.png" alt="セルフラブ協会ロゴ" class="vivian-logo-img">
+            <div class="vivian-logo-text">
+              <h1 class="vivian-logo-title">一般社団法人セルフラブ協会</h1>
+              <p class="vivian-logo-subtitle">Self Love Association Japan</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- デスクトップナビゲーション -->
+        <nav class="vivian-nav-desktop">
+          <a href="/#about" class="vivian-nav-link">協会について</a>
+          <a href="/vivian" class="vivian-nav-link">ビビアン朗読ワーク</a>
+          <a href="https://note.com/ran_ishihara" target="_blank" rel="noopener noreferrer" class="vivian-nav-link">Blog</a>
+          <a href="/membership" class="vivian-nav-link">入会案内</a>
+          <a href="/donation" class="vivian-nav-link">寄付</a>
+        </nav>
+
+        <!-- モバイルハンバーガーメニューボタン -->
+        <button class="vivian-mobile-menu-btn" id="mobileMenuBtn" aria-label="メニューを開く">
+          <i class="ri-menu-line" id="menuIcon"></i>
+        </button>
+      </div>
+
+      <!-- モバイルメニュー -->
+      <div class="vivian-mobile-menu" id="mobileMenu">
+        <nav class="vivian-mobile-nav">
+          <a href="/#about" class="vivian-mobile-nav-link">協会について</a>
+          <a href="/vivian" class="vivian-mobile-nav-link">ビビアン朗読ワーク</a>
+          <a href="https://note.com/ran_ishihara" target="_blank" rel="noopener noreferrer" class="vivian-mobile-nav-link">Blog</a>
+          <a href="/membership" class="vivian-mobile-nav-link">入会案内</a>
+          <a href="/donation" class="vivian-mobile-nav-link">寄付</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="vivian-main">
+    <!-- 1. ファーストビュー -->
+    <section class="vivian-hero" id="hero">
+      <div class="vivian-hero-overlay"></div>
+      <div class="vivian-hero-content">
+        <h2 class="vivian-hero-title">
+          <span class="vivian-hero-title-line">教室に「話し合える空気」をつくる。</span>
+          <span class="vivian-hero-title-line">たった10分から始める、教育のOS。</span>
+        </h2>
+        <p class="vivian-hero-subtitle">
+          絵本×朗読×対話で 子どもと先生のウェルビーイングを整える <strong>ビビアン教育OS</strong>
+        </p>
+        <div class="vivian-hero-cta">
+          <a href="#study-session" class="vivian-btn vivian-btn-primary">勉強会に申し込む（無料）</a>
+          <p class="vivian-hero-note">すでに複数校で実践が始まっています</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 5点訴求 -->
+    <section class="vivian-section vivian-features">
+      <div class="vivian-container">
+        <div class="vivian-features-grid">
+          <div class="vivian-feature-card">
+            <div class="vivian-feature-icon">
+              <i class="ri-time-line"></i>
+            </div>
+            <h3 class="vivian-feature-title">1回10分。15〜20分で始められる</h3>
+            <p class="vivian-feature-text">朝の会・帰りの会・授業のすき間に無理なく実践できます。慣れてきたら15〜20分に拡張も可能です。</p>
+          </div>
+          <div class="vivian-feature-card">
+            <div class="vivian-feature-icon">
+              <i class="ri-team-line"></i>
+            </div>
+            <h3 class="vivian-feature-title">学年・教科・立場を問わない</h3>
+            <p class="vivian-feature-text">小学校から中学校まで、どの学年・どの教科でも実践可能。担任・専科・管理職の先生にもご活用いただけます。</p>
+          </div>
+          <div class="vivian-feature-card">
+            <div class="vivian-feature-icon">
+              <i class="ri-settings-line"></i>
+            </div>
+            <h3 class="vivian-feature-title">教材やツールではなく「教育のOS」</h3>
+            <p class="vivian-feature-text">教室に流れる"前提"を整えることで、すべての活動がスムーズに機能し始めます。</p>
+          </div>
+          <div class="vivian-feature-card">
+            <div class="vivian-feature-icon">
+              <i class="ri-lightbulb-line"></i>
+            </div>
+            <h3 class="vivian-feature-title">探究学習・対話の前提をつくる</h3>
+            <p class="vivian-feature-text">安心して話せる空気が学びを動かします。探究学習や主体的・対話的で深い学びの土台になります。</p>
+          </div>
+          <div class="vivian-feature-card">
+            <div class="vivian-feature-icon">
+              <i class="ri-thumb-up-line"></i>
+            </div>
+            <h3 class="vivian-feature-title">導入がラクで、続けやすい</h3>
+            <p class="vivian-feature-text">特別な準備や研修は不要。勉強会で基本を学べば、翌日から教室で実践できます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 共感セクション -->
+    <section class="vivian-section vivian-empathy">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">こんな教室の悩み、ありませんか？</h2>
+        <div class="vivian-empathy-content">
+          <div class="vivian-empathy-bubbles">
+            <div class="vivian-empathy-bubble">
+              <p>手を挙げる子が限られている</p>
+            </div>
+            <div class="vivian-empathy-bubble">
+              <p>間違えることを怖がる雰囲気がある</p>
+            </div>
+            <div class="vivian-empathy-bubble">
+              <p>話し合いが深まらない</p>
+            </div>
+            <div class="vivian-empathy-bubble">
+              <p>探究学習が形だけになってしまう</p>
+            </div>
+            <div class="vivian-empathy-bubble">
+              <p>先生が一人で抱え込んでしまう</p>
+            </div>
+          </div>
+          <p class="vivian-empathy-message">
+            これらは先生の努力不足ではありません。<br>
+            教室の「前提となる空気」が、まだ整っていないだけです。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ビビアン教育OSとは -->
+    <section class="vivian-section vivian-about-os">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">ビビアン教育OSとは？</h2>
+        <div class="vivian-about-os-content">
+          <p class="vivian-about-os-text">
+            ビビアン教育OSは、<br>
+            絵本「ビビアン」を使った朗読の時間、<br>
+            教室で続けられる1回10分のシンプルなワーク、<br>
+            そして仲間と共有する時間を組み合わせた仕組みです。
+          </p>
+          <p class="vivian-about-os-text">
+            教材や指導法ではなく、<br>
+            教室に流れる「安心して話せる前提」を整えることを目的としています。
+          </p>
+          <div class="vivian-os-steps">
+            <div class="vivian-os-step">
+              <div class="vivian-os-step-number">1</div>
+              <h3 class="vivian-os-step-title">絵本の朗読</h3>
+              <p class="vivian-os-step-text">ビビアンの物語を共有</p>
+            </div>
+            <div class="vivian-os-step-arrow">
+              <i class="ri-arrow-right-line"></i>
+            </div>
+            <div class="vivian-os-step">
+              <div class="vivian-os-step-number">2</div>
+              <h3 class="vivian-os-step-title">10分ワーク</h3>
+              <p class="vivian-os-step-text">教室で実践できるシンプルなワーク</p>
+            </div>
+            <div class="vivian-os-step-arrow">
+              <i class="ri-arrow-right-line"></i>
+            </div>
+            <div class="vivian-os-step">
+              <div class="vivian-os-step-number">3</div>
+              <h3 class="vivian-os-step-title">共有</h3>
+              <p class="vivian-os-step-text">仲間や子どもたちとの対話</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 子どもたちの変化 -->
+    <section class="vivian-section vivian-changes-kids">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">教室で起きる、子どもたちの変化</h2>
+        <p class="vivian-section-intro">
+          ビビアン教育OSを続けることで、<br>
+          子どもたちの行動に少しずつ変化が現れます。
+        </p>
+        <div class="vivian-changes-grid">
+          <div class="vivian-change-item">
+            <i class="ri-hand-heart-line"></i>
+            <p>手が挙がる</p>
+          </div>
+          <div class="vivian-change-item">
+            <i class="ri-question-line"></i>
+            <p>質問が増える</p>
+          </div>
+          <div class="vivian-change-item">
+            <i class="ri-chat-3-line"></i>
+            <p>自分の考えを言える</p>
+          </div>
+          <div class="vivian-change-item">
+            <i class="ri-user-voice-line"></i>
+            <p>友達の意見を聞ける</p>
+          </div>
+          <div class="vivian-change-item">
+            <i class="ri-flashlight-line"></i>
+            <p>間違いを恐れず挑戦できる</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 先生の声 -->
+    <section class="vivian-section vivian-testimonials">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">実践した先生の声</h2>
+        <div class="vivian-testimonials-grid" id="testimonialsContainer">
+          <!-- JavaScriptで動的に生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 教室・先生の変化 -->
+    <section class="vivian-section vivian-changes-teacher">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">教室と先生にも、こんな変化が</h2>
+        <div class="vivian-teacher-changes-grid">
+          <div class="vivian-teacher-change-card">
+            <div class="vivian-teacher-change-icon">
+              <i class="ri-home-smile-line"></i>
+            </div>
+            <h3 class="vivian-teacher-change-title">教室の雰囲気が安定する</h3>
+            <p class="vivian-teacher-change-text">落ち着いた、安心できる空間に</p>
+          </div>
+          <div class="vivian-teacher-change-card">
+            <div class="vivian-teacher-change-icon">
+              <i class="ri-chat-4-line"></i>
+            </div>
+            <h3 class="vivian-teacher-change-title">対話が自然に生まれる</h3>
+            <p class="vivian-teacher-change-text">強制しなくても話し合いが起きる</p>
+          </div>
+          <div class="vivian-teacher-change-card">
+            <div class="vivian-teacher-change-icon">
+              <i class="ri-plant-line"></i>
+            </div>
+            <h3 class="vivian-teacher-change-title">学びが深まる</h3>
+            <p class="vivian-teacher-change-text">探究・創造的な学びにつながる</p>
+          </div>
+          <div class="vivian-teacher-change-card">
+            <div class="vivian-teacher-change-icon">
+              <i class="ri-heart-3-line"></i>
+            </div>
+            <h3 class="vivian-teacher-change-title">先生が無理をしなくてよくなる</h3>
+            <p class="vivian-teacher-change-text">教室運営がラクになる</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 実施校写真ギャラリー -->
+    <section class="vivian-section vivian-gallery">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">実施のようす</h2>
+        <div class="vivian-gallery-grid" id="galleryContainer">
+          <!-- JavaScriptで動的に生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ギャラリーモーダル -->
+    <div class="vivian-modal" id="galleryModal">
+      <div class="vivian-modal-overlay" id="modalOverlay"></div>
+      <div class="vivian-modal-content">
+        <button class="vivian-modal-close" id="modalClose" aria-label="閉じる">
+          <i class="ri-close-line"></i>
+        </button>
+        <img src="" alt="" id="modalImage">
+      </div>
+    </div>
+
+    <!-- 9. 勉強会でわかること -->
+    <section class="vivian-section vivian-study-content">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">勉強会でお伝えすること</h2>
+        <div class="vivian-study-content-list">
+          <div class="vivian-study-content-item">
+            <div class="vivian-study-content-icon">
+              <i class="ri-book-open-line"></i>
+            </div>
+            <div class="vivian-study-content-text">
+              <h3>ビビアン教育OSの全体像</h3>
+              <p>なぜ今、教育のOSが必要なのか</p>
+            </div>
+          </div>
+          <div class="vivian-study-content-item">
+            <div class="vivian-study-content-icon">
+              <i class="ri-edit-line"></i>
+            </div>
+            <div class="vivian-study-content-text">
+              <h3>10分ワークの具体例</h3>
+              <p>すぐに実践できるワークを体験</p>
+            </div>
+          </div>
+          <div class="vivian-study-content-item">
+            <div class="vivian-study-content-icon">
+              <i class="ri-school-line"></i>
+            </div>
+            <div class="vivian-study-content-text">
+              <h3>教室への落とし込み方</h3>
+              <p>具体的な導入ステップと継続のコツ</p>
+            </div>
+          </div>
+          <div class="vivian-study-content-item">
+            <div class="vivian-study-content-icon">
+              <i class="ri-presentation-line"></i>
+            </div>
+            <div class="vivian-study-content-text">
+              <h3>実践校の事例紹介</h3>
+              <p>リアルな変化と先生の声</p>
+            </div>
+          </div>
+          <div class="vivian-study-content-item">
+            <div class="vivian-study-content-icon">
+              <i class="ri-question-answer-line"></i>
+            </div>
+            <div class="vivian-study-content-text">
+              <h3>質疑応答</h3>
+              <p>気になることを直接質問できます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. 勉強会概要 & 最終CTA -->
+    <section class="vivian-section vivian-study-session" id="study-session">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">勉強会の概要</h2>
+        <div class="vivian-study-session-content">
+          <div class="vivian-study-session-info">
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">対象</div>
+              <div class="vivian-study-info-value">学校の先生（小・中・高）</div>
+            </div>
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">所要時間</div>
+              <div class="vivian-study-info-value">約90分</div>
+            </div>
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">開催形式</div>
+              <div class="vivian-study-info-value">オンライン（Zoom）／対面</div>
+            </div>
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">開催頻度</div>
+              <div class="vivian-study-info-value">月1〜2回程度</div>
+            </div>
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">参加費</div>
+              <div class="vivian-study-info-value">無料</div>
+            </div>
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">準備物</div>
+              <div class="vivian-study-info-value">なし</div>
+            </div>
+            <div class="vivian-study-info-item">
+              <div class="vivian-study-info-label">申込締切</div>
+              <div class="vivian-study-info-value">開催日の3日前まで</div>
+            </div>
+          </div>
+          <div class="vivian-study-flow">
+            <h3 class="vivian-study-flow-title">参加の流れ</h3>
+            <ol class="vivian-study-flow-list">
+              <li>下記ボタンから申込フォームに入力</li>
+              <li>自動返信メールで詳細をご案内</li>
+              <li>当日、オンラインまたは会場にて参加</li>
+            </ol>
+          </div>
+        </div>
+        <div class="vivian-final-cta">
+          <h3 class="vivian-final-cta-title">まずは勉強会で体験してください</h3>
+          <p class="vivian-final-cta-text">
+            導入のハードルは高くありません。<br>
+            教室の空気づくりから、少しずつ始められます。
+          </p>
+          <div class="vivian-gift-section" id="giftSection">
+            <!-- JavaScriptで動的に生成 -->
+          </div>
+          <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="vivian-btn vivian-btn-primary vivian-btn-large">
+            勉強会に申し込む（無料）
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FAQ -->
+    <section class="vivian-section vivian-faq">
+      <div class="vivian-container">
+        <h2 class="vivian-section-title">よくある質問</h2>
+        <div class="vivian-faq-list">
+          <div class="vivian-faq-item">
+            <button class="vivian-faq-question">
+              <span>忙しくても続けられますか？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="vivian-faq-answer">
+              <p>1回10分から始められます。朝の会や帰りの会など、既存の時間枠の中で無理なく実践できます。</p>
+            </div>
+          </div>
+          <div class="vivian-faq-item">
+            <button class="vivian-faq-question">
+              <span>学年は限定されますか？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="vivian-faq-answer">
+              <p>小学校から中学校まで、学年・教科を問わず実施できます。担任・専科・管理職の先生にもご活用いただけます。</p>
+            </div>
+          </div>
+          <div class="vivian-faq-item">
+            <button class="vivian-faq-question">
+              <span>特別な準備は必要ですか？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="vivian-faq-answer">
+              <p>特別な準備や研修は不要です。勉強会で基本的なワークを体験すれば、すぐに教室で始められます。</p>
+            </div>
+          </div>
+          <div class="vivian-faq-item">
+            <button class="vivian-faq-question">
+              <span>効果はどのくらいで実感できますか？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="vivian-faq-answer">
+              <p>個人差はありますが、継続することで徐々に教室の雰囲気が変わってきます。数週間から1ヶ月程度で変化を感じる先生が多いです。</p>
+            </div>
+          </div>
+          <div class="vivian-faq-item">
+            <button class="vivian-faq-question">
+              <span>学校全体で導入することは可能ですか？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="vivian-faq-answer">
+              <p>はい、可能です。学校単位での研修や導入支援も行っています。詳しくはお問い合わせください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="vivian-footer">
+    <div class="vivian-container">
+      <div class="vivian-footer-content">
+        <div class="vivian-footer-logo-area">
+          <img src="/assets/images/logo.png" alt="セルフラブ協会ロゴ" class="vivian-footer-logo-img">
+          <h3 class="vivian-footer-title">一般社団法人セルフラブ協会</h3>
+        </div>
+        <p class="vivian-footer-subtitle">Self Love Association Japan</p>
+        <div class="vivian-footer-info">
+          <div class="vivian-footer-info-section">
+            <h4 class="vivian-footer-info-title">お問い合わせ</h4>
+            <a href="mailto:info@selflove.or.jp" class="vivian-footer-link">info@selflove.or.jp</a>
+          </div>
+          <div class="vivian-footer-info-section">
+            <h4 class="vivian-footer-info-title">所在地</h4>
+            <p class="vivian-footer-text">東京都千代田区九段南一丁目5番6号<br>りそな九段ビル5階KSフロア</p>
+          </div>
+          <div class="vivian-footer-info-section">
+            <h4 class="vivian-footer-info-title">SNS</h4>
+            <div class="vivian-footer-social">
+              <a href="https://www.instagram.com/selflove.laboratory/" target="_blank" rel="noopener noreferrer" class="vivian-footer-social-link" aria-label="Instagram">
+                <i class="ri-instagram-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="vivian-footer-bottom">
+          <p class="vivian-footer-copyright">
+            Copyright © Self Love Association Japan. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- モバイル固定CTA（スマホのみ表示） -->
+  <div class="vivian-mobile-cta" id="mobileCta">
+    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="vivian-mobile-cta-btn">
+      勉強会に申し込む（無料）
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

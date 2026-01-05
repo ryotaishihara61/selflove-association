@@ -1,0 +1,1417 @@
+/* =====================================================
+   ビビアン教育OS - 先生向けランディングページ
+   ===================================================== */
+
+/* =====================================================
+   1. リセット & ベーススタイル
+   ===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* =====================================================
+   2. 共通クラス
+   ===================================================== */
+.vivian-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.vivian-section {
+  padding: 80px 0;
+}
+
+.vivian-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 48px;
+}
+
+.vivian-section-intro {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin-bottom: 48px;
+  line-height: 1.8;
+}
+
+.vivian-btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.vivian-btn-primary {
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.vivian-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+}
+
+.vivian-btn-large {
+  padding: 20px 48px;
+  font-size: 1.25rem;
+}
+
+/* =====================================================
+   3. ヘッダー
+   ===================================================== */
+.vivian-header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.vivian-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.vivian-logo-area {
+  display: flex;
+  align-items: center;
+}
+
+.vivian-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vivian-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.vivian-logo-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Pacifico', serif;
+}
+
+.vivian-logo-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.vivian-nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 32px;
+}
+
+.vivian-nav-link {
+  color: #374151;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.vivian-nav-link:hover {
+  color: #ec4899;
+}
+
+.vivian-mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  color: #374151;
+}
+
+.vivian-mobile-menu {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.vivian-mobile-menu.active {
+  display: block;
+}
+
+.vivian-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vivian-mobile-nav-link {
+  color: #374151;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.vivian-mobile-nav-link:hover {
+  color: #ec4899;
+}
+
+/* =====================================================
+   4. メインコンテンツ
+   ===================================================== */
+.vivian-main {
+  padding-top: 80px;
+}
+
+/* =====================================================
+   5. ファーストビュー（再設計：キービジュアルを活かす）
+   ===================================================== */
+.vivian-hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+  background-image: url('../images/hero-sp.png');
+  background-size: cover;
+  background-position: 85% center; /* スマホで右側のビビアン（黒ヒョウ）が映るように右寄せ */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+/* 左上限定の最小限オーバーレイ */
+.vivian-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0) 65%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* テキストブロック：左上に配置、箱なし */
+.vivian-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding: 0 24px;
+  margin-left: 24px;
+}
+
+/* H1：自然な2-3行、縦に伸びすぎない */
+.vivian-hero-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.45;
+  margin-bottom: 16px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* H1の各行：モバイルでは自然に折り返し */
+.vivian-hero-title-line {
+  display: inline;
+}
+
+/* サブコピー */
+.vivian-hero-subtitle {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 24px;
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.vivian-hero-subtitle strong {
+  color: #ec4899;
+  font-weight: 700;
+  white-space: nowrap; /* 「ビビアン教育OS」を一緒に保つ */
+}
+
+/* CTA */
+.vivian-hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* マイクロコピー：CTA直下 */
+.vivian-hero-note {
+  font-size: 0.8rem;
+  color: #555;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================================
+   6. 5点訴求
+   ===================================================== */
+.vivian-features {
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+}
+
+.vivian-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.vivian-feature-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.vivian-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.15);
+}
+
+.vivian-feature-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #fce7f3 0%, #fed7aa 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #ec4899;
+}
+
+.vivian-feature-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.vivian-feature-text {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   7. 共感セクション
+   ===================================================== */
+.vivian-empathy {
+  background: #fff;
+}
+
+.vivian-empathy-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 吹き出し風のグリッドレイアウト */
+.vivian-empathy-bubbles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+/* 吹き出し風カード */
+.vivian-empathy-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #fce7f3;
+  border-radius: 20px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.1);
+  transition: all 0.3s ease;
+}
+
+.vivian-empathy-bubble:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.15);
+  border-color: #ec4899;
+}
+
+/* 吹き出しの三角 */
+.vivian-empathy-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fce7f3;
+}
+
+.vivian-empathy-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 32px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+}
+
+.vivian-empathy-bubble p {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.vivian-empathy-message {
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+  padding: 32px;
+  border-radius: 16px;
+  font-size: 1.125rem;
+  color: #1f2937;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   8. ビビアン教育OSとは
+   ===================================================== */
+.vivian-about-os {
+  background: linear-gradient(135deg, #fef3f4 0%, #f3e8ff 100%);
+}
+
+.vivian-about-os-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vivian-about-os-text {
+  font-size: 1.125rem;
+  color: #374151;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+
+.vivian-os-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.vivian-os-step {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.vivian-os-step-number {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 16px;
+}
+
+.vivian-os-step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.vivian-os-step-text {
+  color: #6b7280;
+}
+
+.vivian-os-step-arrow {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #ec4899;
+}
+
+/* =====================================================
+   9. 子どもたちの変化
+   ===================================================== */
+.vivian-changes-kids {
+  background: #fff;
+}
+
+.vivian-changes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vivian-change-item {
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.vivian-change-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.15);
+}
+
+.vivian-change-item i {
+  font-size: 3rem;
+  color: #ec4899;
+}
+
+.vivian-change-item p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* =====================================================
+   10. 先生の声
+   ===================================================== */
+.vivian-testimonials {
+  background: linear-gradient(135deg, #fef3f4 0%, #f3e8ff 100%);
+}
+
+.vivian-testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vivian-testimonial-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+/* 丸いアバター画像 */
+.vivian-testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+}
+
+/* プレースホルダー */
+.vivian-testimonial-avatar-placeholder {
+  background: linear-gradient(135deg, #fce7f3 0%, #fed7aa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #ec4899;
+}
+
+.vivian-testimonial-content {
+  flex: 1;
+  position: relative;
+}
+
+.vivian-testimonial-quote {
+  font-size: 3rem;
+  color: #fce7f3;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  line-height: 1;
+}
+
+.vivian-testimonial-summary {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ec4899;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.vivian-testimonial-text {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.vivian-testimonial-author {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* =====================================================
+   11. 教室・先生の変化
+   ===================================================== */
+.vivian-changes-teacher {
+  background: #fff;
+}
+
+.vivian-teacher-changes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.vivian-teacher-change-card {
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.vivian-teacher-change-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.15);
+}
+
+.vivian-teacher-change-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.vivian-teacher-change-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.vivian-teacher-change-text {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   12. 実施校写真ギャラリー
+   ===================================================== */
+.vivian-gallery {
+  background: linear-gradient(135deg, #fef3f4 0%, #f3e8ff 100%);
+}
+
+.vivian-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.vivian-gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+  background: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.vivian-gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.2);
+}
+
+.vivian-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vivian-gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+/* モーダル */
+.vivian-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.vivian-modal.active {
+  display: block;
+}
+
+.vivian-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.vivian-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  z-index: 10000;
+}
+
+.vivian-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.vivian-modal-close:hover {
+  background: #ec4899;
+  color: #fff;
+}
+
+.vivian-modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+/* =====================================================
+   13. 勉強会でわかること
+   ===================================================== */
+.vivian-study-content {
+  background: #fff;
+}
+
+.vivian-study-content-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vivian-study-content-item {
+  display: flex;
+  gap: 24px;
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.vivian-study-content-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.15);
+}
+
+.vivian-study-content-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.vivian-study-content-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.vivian-study-content-text p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   14. 勉強会概要 & 最終CTA
+   ===================================================== */
+.vivian-study-session {
+  background: linear-gradient(135deg, #fef3f4 0%, #f3e8ff 100%);
+}
+
+.vivian-study-session-content {
+  max-width: 800px;
+  margin: 0 auto 64px;
+}
+
+.vivian-study-session-info {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vivian-study-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.vivian-study-info-item:last-child {
+  border-bottom: none;
+}
+
+.vivian-study-info-label {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.vivian-study-info-value {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.125rem;
+}
+
+.vivian-study-flow {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vivian-study-flow-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.vivian-study-flow-list {
+  list-style: none;
+  counter-reset: step-counter;
+}
+
+.vivian-study-flow-list li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 48px;
+  margin-bottom: 16px;
+  color: #374151;
+  font-size: 1.125rem;
+}
+
+.vivian-study-flow-list li:before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.vivian-final-cta {
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 64px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vivian-final-cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+.vivian-final-cta-text {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* 参加特典セクション */
+.vivian-gift-section {
+  margin: 32px 0;
+}
+
+.vivian-gift-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
+  padding: 32px 24px;
+  border-radius: 16px;
+  border: 2px solid #fce7f3;
+}
+
+.vivian-gift-image-wrapper {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vivian-gift-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vivian-gift-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* =====================================================
+   15. FAQ
+   ===================================================== */
+.vivian-faq {
+  background: #fff;
+}
+
+.vivian-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vivian-faq-item {
+  background: #fff;
+  border: 2px solid #f3f4f6;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.vivian-faq-item:hover {
+  border-color: #fce7f3;
+}
+
+.vivian-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  text-align: left;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.vivian-faq-question:hover {
+  color: #ec4899;
+}
+
+.vivian-faq-question i {
+  font-size: 1.5rem;
+  color: #9ca3af;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.vivian-faq-item.active .vivian-faq-question i {
+  transform: rotate(180deg);
+  color: #ec4899;
+}
+
+.vivian-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.vivian-faq-item.active .vivian-faq-answer {
+  max-height: 500px;
+}
+
+.vivian-faq-answer p {
+  padding: 0 24px 24px;
+  color: #6b7280;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   16. フッター
+   ===================================================== */
+.vivian-footer {
+  background: #1f2937;
+  color: #fff;
+  padding: 64px 0 32px;
+}
+
+.vivian-footer-content {
+  text-align: center;
+}
+
+.vivian-footer-logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.vivian-footer-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.vivian-footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.vivian-footer-subtitle {
+  color: #d1d5db;
+  margin-bottom: 32px;
+}
+
+.vivian-footer-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.vivian-footer-info-section {
+  text-align: center;
+}
+
+.vivian-footer-info-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.vivian-footer-link {
+  color: #d1d5db;
+  transition: color 0.3s ease;
+}
+
+.vivian-footer-link:hover {
+  color: #fff;
+}
+
+.vivian-footer-text {
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+.vivian-footer-social {
+  display: flex;
+  justify-content: center;
+}
+
+.vivian-footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
+  border-radius: 12px;
+  font-size: 2rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.vivian-footer-social-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+}
+
+.vivian-footer-bottom {
+  border-top: 1px solid #374151;
+  padding-top: 24px;
+  margin-top: 32px;
+}
+
+.vivian-footer-copyright {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+/* =====================================================
+   17. モバイル固定CTA
+   ===================================================== */
+.vivian-mobile-cta {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  padding: 12px 16px;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.vivian-mobile-cta-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s ease;
+}
+
+.vivian-mobile-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+}
+
+/* =====================================================
+   18. レスポンシブ対応（タブレット）
+   ===================================================== */
+@media (min-width: 768px) {
+  .vivian-nav-desktop {
+    display: flex;
+  }
+
+  .vivian-mobile-menu-btn {
+    display: none;
+  }
+
+  .vivian-mobile-menu {
+    display: none !important;
+  }
+
+  .vivian-mobile-cta {
+    display: none;
+  }
+
+  .vivian-section {
+    padding: 100px 0;
+  }
+
+  .vivian-section-title {
+    font-size: 3rem;
+  }
+
+  /* ヒーロー：タブレット以上 */
+  .vivian-hero {
+    padding-top: 140px;
+    background-image: url('../images/hero.png');
+    background-position: center center;
+  }
+
+  .vivian-hero-content {
+    max-width: 600px;
+    margin-left: 48px;
+  }
+
+  .vivian-hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  /* タブレットでも各行をブロック表示開始 */
+  .vivian-hero-title-line {
+    display: block;
+  }
+
+  .vivian-hero-subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 28px;
+  }
+
+  .vivian-hero-note {
+    font-size: 0.9rem;
+  }
+
+  /* 吹き出しを2列に */
+  .vivian-empathy-bubbles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .vivian-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vivian-os-steps {
+    flex-direction: row;
+    align-items: stretch; /* 高さを揃える */
+  }
+
+  .vivian-os-step-arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  .vivian-changes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vivian-teacher-changes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 先生の声カードを横並びに */
+  .vivian-testimonial-card {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 32px;
+    gap: 24px;
+  }
+
+  .vivian-testimonial-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .vivian-testimonial-quote {
+    left: -10px;
+  }
+
+  .vivian-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vivian-footer-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 特典セクション：タブレット以上 */
+  .vivian-gift-content {
+    flex-direction: row;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  .vivian-gift-image-wrapper {
+    max-width: 250px;
+    flex-shrink: 0;
+  }
+
+  .vivian-gift-text {
+    text-align: left;
+    font-size: 1.25rem;
+  }
+}
+
+/* =====================================================
+   19. レスポンシブ対応（デスクトップ）
+   ===================================================== */
+@media (min-width: 1024px) {
+  /* ヒーロー：PC版 - 左上に配置、キービジュアル最大化 */
+  .vivian-hero {
+    padding-top: 160px;
+    padding-left: 6vw;
+  }
+
+  /* テキストコンテナを広げてサブコピーも1行に収まるようにする */
+  .vivian-hero-content {
+    max-width: 800px;
+    margin-left: 0;
+  }
+
+  /* PC：視覚的に2行固定、各行は折り返し禁止 */
+  .vivian-hero-title {
+    font-size: clamp(2.2rem, 3.5vw, 2.75rem);
+    line-height: 1.25;
+    margin-bottom: 24px;
+  }
+
+  /* 各行をblock表示、折り返し禁止で2行確定 */
+  .vivian-hero-title-line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  /* サブコピー：clampで動的調整し、1行に収まるようにする */
+  .vivian-hero-subtitle {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .vivian-hero-note {
+    font-size: 0.95rem;
+  }
+
+  .vivian-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .vivian-changes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .vivian-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =====================================================
+   20. アクセシビリティ
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================
+   21. プリントスタイル
+   ===================================================== */
+@media print {
+  .vivian-header,
+  .vivian-mobile-cta,
+  .vivian-hero-cta,
+  .vivian-final-cta {
+    display: none;
+  }
+
+  .vivian-main {
+    padding-top: 0;
+  }
+
+  .vivian-section {
+    padding: 40px 0;
+    page-break-inside: avoid;
+  }
+}

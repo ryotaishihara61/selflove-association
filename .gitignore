@@ -38,3 +38,6 @@ lerna-debug.log*
 
 # 自動生成ファイル
 auto-imports.d.ts
+
+# 開発用ディレクトリ（ルートのみ）
+/vivian-os/
