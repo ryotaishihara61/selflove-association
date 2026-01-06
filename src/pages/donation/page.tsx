@@ -51,12 +51,6 @@ const DonationPage = () => {
                 ホーム
               </button>
               <button
-                onClick={() => handleNavigateWithScroll('/', 'about')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                協会について
-              </button>
-              <button
                 onClick={() => navigate('/vivian')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
@@ -84,7 +78,7 @@ const DonationPage = () => {
               </button>
               <button
                 onClick={() => navigate('/donation')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                className="text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
               >
                 寄付
               </button>
@@ -108,12 +102,6 @@ const DonationPage = () => {
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
                   ホーム
-                </button>
-                <button
-                  onClick={() => handleNavigateWithScroll('/', 'about')}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  協会について
                 </button>
                 <button
                   onClick={() => {
@@ -149,7 +137,7 @@ const DonationPage = () => {
                     navigate('/donation');
                     setMobileMenuOpen(false);
                   }}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                  className="text-left text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
                 >
                   寄付
                 </button>

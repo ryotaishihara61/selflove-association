@@ -56,34 +56,36 @@ const VivianPage = () => {
                 ホーム
               </button>
               <button
-                onClick={() => scrollToSection('about')}
+                onClick={() => navigate('/vivian')}
+                className="text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
+              >
+                ビビアン朗読ワーク
+              </button>
+              <a
+                href="/vivian-os/"
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                絵本について
-              </button>
-              <button
-                onClick={() => scrollToSection('programs')}
+                先生の皆さまへ
+              </a>
+              <a
+                href="https://note.com/ran_ishihara"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                朗読ワーク
-              </button>
+                Blog
+              </a>
               <button
-                onClick={() => scrollToSection('purchase')}
+                onClick={() => navigate('/membership')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                絵本の購入
+                入会案内
               </button>
               <button
-                onClick={() => scrollToSection('resources')}
+                onClick={() => navigate('/donation')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
-                資料ダウンロード
-              </button>
-              <button
-                onClick={() => scrollToSection('contact-form')}
-                className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer"
-              >
-                ご依頼
+                寄付
               </button>
             </nav>
 
@@ -110,34 +112,45 @@ const VivianPage = () => {
                   ホーム
                 </button>
                 <button
-                  onClick={() => scrollToSection('about')}
+                  onClick={() => {
+                    navigate('/vivian');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
+                >
+                  ビビアン朗読ワーク
+                </button>
+                <a
+                  href="/vivian-os/"
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  絵本について
-                </button>
-                <button
-                  onClick={() => scrollToSection('programs')}
+                  先生の皆さまへ
+                </a>
+                <a
+                  href="https://note.com/ran_ishihara"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  朗読ワーク
-                </button>
+                  Blog
+                </a>
                 <button
-                  onClick={() => scrollToSection('purchase')}
+                  onClick={() => {
+                    navigate('/membership');
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  絵本の購入
+                  入会案内
                 </button>
                 <button
-                  onClick={() => scrollToSection('resources')}
+                  onClick={() => {
+                    navigate('/donation');
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
                 >
-                  資料ダウンロード
-                </button>
-                <button
-                  onClick={() => scrollToSection('contact-form')}
-                  className="text-left bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap cursor-pointer w-fit"
-                >
-                  ご依頼
+                  寄付
                 </button>
               </nav>
             </div>

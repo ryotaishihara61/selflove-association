@@ -43,10 +43,10 @@ const HomePage = () => {
             {/* デスクトップナビゲーション */}
             <nav className="hidden md:flex items-center space-x-8">
               <button
-                onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                onClick={() => navigate('/')}
+                className="text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
               >
-                協会について
+                ホーム
               </button>
               <button
                 onClick={() => navigate('/vivian')}
@@ -96,10 +96,13 @@ const HomePage = () => {
             <div className="md-hidden mt-4 pb-4 border-t border-gray-200">
               <nav className="flex flex-col space-y-4 pt-4">
                 <button
-                  onClick={() => scrollToSection('about')}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                  onClick={() => {
+                    navigate('/');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
                 >
-                  協会について
+                  ホーム
                 </button>
                 <button
                   onClick={() => {

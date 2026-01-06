@@ -54,12 +54,6 @@ const MembershipPage = () => {
                 ホーム
               </button>
               <button
-                onClick={() => handleNavigateWithScroll('/', 'about')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                協会について
-              </button>
-              <button
                 onClick={() => navigate('/vivian')}
                 className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
               >
@@ -81,7 +75,7 @@ const MembershipPage = () => {
               </a>
               <button
                 onClick={() => navigate('/membership')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                className="text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
               >
                 入会案内
               </button>
@@ -113,12 +107,6 @@ const MembershipPage = () => {
                   ホーム
                 </button>
                 <button
-                  onClick={() => handleNavigateWithScroll('/', 'about')}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  協会について
-                </button>
-                <button
                   onClick={() => {
                     navigate('/vivian');
                     setMobileMenuOpen(false);
@@ -143,7 +131,7 @@ const MembershipPage = () => {
                 </a>
                 <button
                   onClick={() => navigate('/membership')}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                  className="text-left text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
                 >
                   入会案内
                 </button>
