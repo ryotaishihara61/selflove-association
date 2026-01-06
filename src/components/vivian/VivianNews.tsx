@@ -9,6 +9,22 @@ const VivianNews = () => {
 
   const newsItems = [
     {
+      date: "2025.12.12",
+      content: (
+        <>
+          ブログ更新：
+          <a
+            href="https://note.com/ran_ishihara/n/n51a4e0719552"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-600 hover:text-purple-800 underline"
+          >
+            CIESF Leaders Academy (Cambodia) での気付き
+          </a>
+        </>
+      )
+    },
+    {
       date: "2025.12.02",
       content: (
         <>

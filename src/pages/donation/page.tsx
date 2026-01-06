@@ -63,6 +63,12 @@ const DonationPage = () => {
                 ビビアン朗読ワーク
               </button>
               <a
+                href="/vivian-os/"
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                先生の皆さまへ
+              </a>
+              <a
                 href="https://note.com/ran_ishihara"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -118,6 +124,12 @@ const DonationPage = () => {
                 >
                   ビビアン朗読ワーク
                 </button>
+                <a
+                  href="/vivian-os/"
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  先生の皆さまへ
+                </a>
                 <a
                   href="https://note.com/ran_ishihara"
                   target="_blank"

@@ -7,11 +7,11 @@
 // 定数
 // =====================================================
 const CONFIG = {
-  WORKSHOP_FORM_URL: 'https://example.com', // 勉強会申込フォームURL（このURLを変更すれば全CTAが更新されます）
+  WORKSHOP_FORM_URL: 'https://forms.gle/TYzuDEVu9SDBPtNQ8', // 勉強会申込フォームURL（このURLを変更すれば全CTAが更新されます）
   GIFT: {
     enabled: true, // 特典表示のON/OFF
-    text: 'ご参加いただいた方には◯◯◯◯を差し上げております。', // 特典の説明文（◯◯◯◯部分を実際の特典名に変更してください）
-    image: './assets/images/gift.png', // 特典画像のパス（画像を配置してパスを変更してください）
+    text: 'ご参加いただいた方には学びの場の状態がわかる「教室のいまMAP」を差し上げております。',
+    image: '/kyoushitsu-ima-map.png', // 教室のいまMAP画像
   },
 };
 

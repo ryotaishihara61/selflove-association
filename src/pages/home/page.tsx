@@ -55,6 +55,12 @@ const HomePage = () => {
                 ビビアン朗読ワーク
               </button>
               <a
+                href="/vivian-os/"
+                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+              >
+                先生の皆さまへ
+              </a>
+              <a
                 href="https://note.com/ran_ishihara"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -104,6 +110,12 @@ const HomePage = () => {
                 >
                   ビビアン朗読ワーク
                 </button>
+                <a
+                  href="/vivian-os/"
+                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
+                >
+                  先生の皆さまへ
+                </a>
                 <a
                   href="https://note.com/ran_ishihara"
                   target="_blank"
@@ -364,7 +376,7 @@ const HomePage = () => {
                   </div>
 
                   <a
-                    href="https://vivian-selflove.site/"
+                    href="https://selflove.or.jp/vivian"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"

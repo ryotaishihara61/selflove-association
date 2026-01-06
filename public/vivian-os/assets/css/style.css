@@ -1296,9 +1296,14 @@ button {
     align-items: stretch; /* 高さを揃える */
   }
 
+  .vivian-os-step {
+    flex: 1; /* 横幅を統一 */
+  }
+
   .vivian-os-step-arrow {
     display: flex;
     align-items: center;
+    flex-shrink: 0; /* 矢印が縮まないようにする */
   }
 
   .vivian-changes-grid {
