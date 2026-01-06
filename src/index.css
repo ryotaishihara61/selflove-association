@@ -6,6 +6,18 @@
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in;
   }
+
+  .hero-background {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url('/assets/images/hero-background-sp.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-background {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url('/assets/images/hero-background.jpeg');
+    }
+  }
 }
 
 @keyframes fadeIn {

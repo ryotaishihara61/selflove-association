@@ -18,10 +18,7 @@ const HomePage = () => {
 
       {/* ヒーローセクション */}
       <section
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center pt-20"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url('/assets/images/hero-background.jpeg')`
-        }}
+        className="relative min-h-screen flex items-center justify-center pt-20 hero-background"
       >
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
