@@ -6,6 +6,7 @@ import Membership from "../pages/membership/page";
 import MemberRules from "../pages/member-rules/page";
 import Donation from "../pages/donation/page";
 import Vivian from "../pages/vivian/page";
+import VivianOS from "../pages/vivian-os/page";
 
 const routes: RouteObject[] = [
   {
@@ -27,6 +28,10 @@ const routes: RouteObject[] = [
   {
     path: "/vivian",
     element: <Vivian />,
+  },
+  {
+    path: "/vivian-os",
+    element: <VivianOS />,
   },
   {
     path: "*",

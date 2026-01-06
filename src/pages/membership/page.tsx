@@ -1,25 +1,8 @@
-
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header';
 
 const MembershipPage = () => {
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleNavigateWithScroll = (path: string, sectionId?: string) => {
-    navigate(path);
-    setMobileMenuOpen(false);
-    if (sectionId) {
-      setTimeout(() => scrollToSection(sectionId), 100);
-    }
-  };
 
   const handleGoogleFormOpen = () => {
     window.open('https://forms.gle/PFbRndqP61kjd7gG7', '_blank');
@@ -27,128 +10,7 @@ const MembershipPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-orange-50">
-      {/* ヘッダー */}
-      <header className="bg-white shadow-sm fixed w-full top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <img
-                src="/assets/images/logo.png"
-                alt="セルフラブ協会ロゴ"
-                className="h-12 w-12 object-contain"
-              />
-              <div>
-                <h1 className="text-xl font-bold text-gray-800" style={{ fontFamily: '"Pacifico", serif' }}>
-                  一般社団法人セルフラブ協会
-                </h1>
-                <p className="text-sm text-gray-600">Self Love Association Japan</p>
-              </div>
-            </div>
-
-            {/* デスクトップナビゲーション */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => navigate('/')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                ホーム
-              </button>
-              <button
-                onClick={() => navigate('/vivian')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                ビビアン朗読ワーク
-              </button>
-              <a
-                href="/vivian-os/"
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                先生の皆さまへ
-              </a>
-              <a
-                href="https://note.com/ran_ishihara"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                Blog
-              </a>
-              <button
-                onClick={() => navigate('/membership')}
-                className="text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
-              >
-                入会案内
-              </button>
-              <button
-                onClick={() => navigate('/donation')}
-                className="text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-              >
-                寄付
-              </button>
-            </nav>
-
-            {/* モバイルハンバーガーメニューボタン */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer"
-            >
-              <i className={`ri-${mobileMenuOpen ? 'close' : 'menu'}-line text-2xl text-gray-700`}></i>
-            </button>
-          </div>
-
-          {/* モバイルメニュー */}
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
-              <nav className="flex flex-col space-y-4 pt-4">
-                <button
-                  onClick={() => handleNavigateWithScroll('/')}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  ホーム
-                </button>
-                <button
-                  onClick={() => {
-                    navigate('/vivian');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  ビビアン朗読ワーク
-                </button>
-                <a
-                  href="/vivian-os/"
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  先生の皆さまへ
-                </a>
-                <a
-                  href="https://note.com/ran_ishihara"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  Blog
-                </a>
-                <button
-                  onClick={() => navigate('/membership')}
-                  className="text-left text-pink-600 font-semibold underline underline-offset-4 cursor-pointer"
-                >
-                  入会案内
-                </button>
-                <button
-                  onClick={() => {
-                    navigate('/donation');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-pink-600 transition-colors cursor-pointer"
-                >
-                  寄付
-                </button>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
+      <Header currentPage="membership" />
 
       {/* メインコンテンツ */}
       <main className="py-20 pt-32">
