@@ -20,7 +20,7 @@ const TESTIMONIALS = [
   {
     summary: '教室の空気が明らかに変わりました',
     text: '子どもたちが安心して話せるようになり、私自身も無理をしなくてよくなりました。',
-    author: '公立小学校・担任',
+    author: '私立中学校・担任',
     image: './assets/images/teacher1.png',
   },
   {
