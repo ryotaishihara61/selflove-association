@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import VivianNews from '../../components/vivian/VivianNews';
 import Header from '../../components/Header';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
