@@ -18,7 +18,7 @@ const DonationPage = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">寄付のお願い</h1>
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            セルフラブ教育の普及と発展のために、皆様のご支援をお願いいたします
+            セルフラブ教育の普及と発展のために、ご支援をお願いいたします
           </p>
         </div>
       </section>
