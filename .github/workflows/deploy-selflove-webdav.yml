@@ -134,7 +134,7 @@ jobs:
         run: |
           echo "📄 .htaccess をアップロード中..."
 
-          curl -T .htaccess \
+          curl -T out/.htaccess \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/.htaccess"
 

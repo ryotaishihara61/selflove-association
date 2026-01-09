@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
+  RewriteBase /selflove/
 
   # index.html 自身は書き換えない
   RewriteRule ^index\.html$ - [L]
@@ -8,5 +8,5 @@
   # 実ファイル / 実ディレクトリがないパスだけ index.html に集約
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /selflove/index.html [L]
 </IfModule>
