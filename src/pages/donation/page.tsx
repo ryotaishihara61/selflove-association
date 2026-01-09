@@ -37,6 +37,7 @@ const DonationPage = () => {
                     <img
                       src="/assets/images/donation-activity.jpeg"
                       alt="セルフラブ教育の様子"
+                      loading="lazy"
                       className="rounded-lg shadow-lg object-cover w-full h-80 object-top"
                     />
                   </div>

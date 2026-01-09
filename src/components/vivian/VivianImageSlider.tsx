@@ -172,6 +172,7 @@ const VivianImageSlider = () => {
                     <img
                       src={image.src}
                       alt={image.alt}
+                      loading="lazy"
                       className="w-full h-60 md:h-72 lg:h-80 object-cover rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -64,6 +64,7 @@ const HomePage = () => {
               <img
                 src="/selflove-okura.jpg"
                 alt="協会の活動風景"
+                loading="lazy"
                 className="rounded-2xl shadow-xl object-cover w-full h-96 md:h-[500px]"
               />
             </div>
@@ -150,6 +151,7 @@ const HomePage = () => {
                   <img
                     src="/assets/images/ran-prof.jpg"
                     alt="代表理事 石原 蘭"
+                    loading="lazy"
                     className="rounded-2xl shadow-lg object-cover w-full max-w-sm h-auto"
                   />
                 </div>
@@ -257,6 +259,7 @@ const HomePage = () => {
                   <img
                     src="/assets/images/vivian-workshop.png"
                     alt="ビビアンの朗読ワークショップ"
+                    loading="lazy"
                     className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent"></div>

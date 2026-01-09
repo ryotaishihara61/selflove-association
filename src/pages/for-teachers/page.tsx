@@ -435,6 +435,7 @@ const ForTeachersPage = () => {
                         <img
                           src={testimonial.image}
                           alt={testimonial.name}
+                          loading="lazy"
                           className="w-full h-full object-cover rounded-full"
                         />
                       ) : (
@@ -650,6 +651,7 @@ const ForTeachersPage = () => {
                 <img
                   src="/selinfogra.jpg"
                   alt="SELの5つのスキル図解 / インフォグラフィック"
+                  loading="lazy"
                   className="rounded-2xl shadow-xl object-contain w-full max-h-80"
                 />
               </div>
@@ -735,6 +737,7 @@ const ForTeachersPage = () => {
               <img
                 src="/benkyokai.png"
                 alt="オンライン勉強会の様子"
+                loading="lazy"
                 className="rounded-2xl shadow-xl object-contain w-full max-h-64 md:max-h-80"
               />
             </div>
@@ -788,6 +791,7 @@ const ForTeachersPage = () => {
                 <img
                   src="/kyoushitsu-ima-map.png"
                   alt="教室のいまMAP - 学びの場の状態を可視化するツール"
+                  loading="lazy"
                   className="rounded-xl shadow-lg object-contain w-full max-w-3xl"
                 />
               </div>

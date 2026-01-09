@@ -214,6 +214,7 @@ const VivianOSPage = () => {
                   <img
                     src={testimonial.image}
                     alt={testimonial.author}
+                    loading="lazy"
                     className="vivian-testimonial-avatar"
                   />
                   <div className="vivian-testimonial-content">
@@ -263,7 +264,7 @@ const VivianOSPage = () => {
                   onClick={() => setSelectedImage(image.src)}
                   style={{ cursor: 'pointer' }}
                 >
-                  <img src={image.src} alt={image.alt} />
+                  <img src={image.src} alt={image.alt} loading="lazy" />
                 </div>
               ))}
             </div>
