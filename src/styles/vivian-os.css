@@ -237,7 +237,7 @@ button {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, #fef3f4 0%, #fff7ed 100%);
-  background-image: url('/assets/images/vivian-os/hero-sp.png');
+  background-image: url('/assets/images/vivian-os/hero-sp.jpeg');
   background-size: cover;
   background-position: 85% center; /* スマホで右側のビビアン（黒ヒョウ）が映るように右寄せ */
   background-repeat: no-repeat;
