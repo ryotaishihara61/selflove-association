@@ -5,17 +5,28 @@ const DonationPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-orange-50">
       <Header currentPage="donation" />
 
+      {/* ヒーローセクション */}
+      <section
+        className="relative min-h-screen flex items-center justify-center pt-20"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.8)), url('/assets/images/donation/hero-donation.jpeg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">寄付のお願い</h1>
+          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            セルフラブ教育の普及と発展のために、皆様のご支援をお願いいたします
+          </p>
+        </div>
+      </section>
+
       {/* メインコンテンツ */}
-      <main className="py-20 pt-32">
+      <main className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            {/* ページタイトル */}
-            <div className="text-center mb-16">
-              <h1 className="text-5xl font-bold text-gray-800 mb-6">寄付のお願い</h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
-                セルフラブ教育の普及と発展のために、皆様のご支援をお願いいたします
-              </p>
-            </div>
 
             {/* 寄付の目的 */}
             <section className="mb-16">
