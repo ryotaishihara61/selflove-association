@@ -11,19 +11,19 @@ const VivianOSPage = () => {
       summary: '教室の空気が明らかに変わりました',
       text: '子どもたちが安心して話せるようになり、私自身も無理をしなくてよくなりました。',
       author: '私立中学校・担任',
-      image: '/assets/images/vivian-os/teacher1.png',
+      image: '/assets/images/vivian-os/teacher1.jpg',
     },
     {
       summary: '10分だから続けやすい',
       text: '朝の会でビビアンワークをするようになってから、1日の始まりが穏やかになりました。',
       author: '公立小学校・担任',
-      image: '/assets/images/vivian-os/teacher2.png',
+      image: '/assets/images/vivian-os/teacher2.jpg',
     },
     {
       summary: '探究学習の土台ができました',
       text: '子どもたちが自分の考えを言えるようになり、対話が深まりました。探究学習の前提づくりとして最適です。',
       author: '中学校・専科教員',
-      image: '/assets/images/vivian-os/teacher3.png',
+      image: '/assets/images/vivian-os/teacher3.jpg',
     },
   ];
 
@@ -32,8 +32,8 @@ const VivianOSPage = () => {
     { src: '/assets/images/vivian-os/gallery/2.jpg', alt: '実施のようす2' },
     { src: '/assets/images/vivian-os/gallery/3.jpg', alt: '実施のようす3' },
     { src: '/assets/images/vivian-os/gallery/4.jpg', alt: '実施のようす4' },
-    { src: '/assets/images/vivian-os/gallery/5.png', alt: '実施のようす5' },
-    { src: '/assets/images/vivian-os/gallery/6.png', alt: '実施のようす6' },
+    { src: '/assets/images/vivian-os/gallery/5.jpg', alt: '実施のようす5' },
+    { src: '/assets/images/vivian-os/gallery/6.jpg', alt: '実施のようす6' },
   ];
 
   const faqs = [
