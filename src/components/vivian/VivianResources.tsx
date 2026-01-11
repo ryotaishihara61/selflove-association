@@ -11,12 +11,6 @@ const VivianResources = () => {
       icon: "ri-file-text-fill"
     },
     {
-      title: "教育関係者向けビビアン活動説明資料（PDF）",
-      description: "ビビアンプロジェクトの詳細な活動内容と教育的効果をまとめた資料です。",
-      url: "/pdf/vivian/rainbow-project-for-educators-2025.pdf",
-      icon: "ri-presentation-fill"
-    },
-    {
       title: "朗読ワーク資料 vivian登場人物（PDF）",
       description: "朗読ワークで使用する登場人物の詳細資料です。",
       url: "/pdf/vivian/vivian_characters.pdf",
