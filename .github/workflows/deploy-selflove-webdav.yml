@@ -26,7 +26,7 @@ jobs:
 
       - name: ビルド実行
         env:
-          BASE_PATH: /selflove/
+          BASE_PATH: /selflove
         run: npm run build
 
       - name: .htaccessファイルの配置
