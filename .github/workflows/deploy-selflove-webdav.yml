@@ -1,4 +1,4 @@
-name: Deploy to Lolipop via WebDAV
+name: Deploy to selflove.or.jp via WebDAV
 
 on:
   workflow_dispatch: # 手動実行
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-deploy:
-    name: ビルド & WebDAVデプロイ
+    name: ビルド & WebDAVデプロイ (selflove.or.jp)
     runs-on: ubuntu-latest
 
     steps:
@@ -25,18 +25,17 @@ jobs:
         run: npm ci
 
       - name: ビルド実行
-        env:
-          BASE_PATH: /selflove/
         run: npm run build
 
       - name: .htaccessファイルの配置
         run: |
           echo "📄 .htaccessファイルを確認中..."
-          if [ -f out/.htaccess ]; then
-            echo "✅ out/.htaccess が存在します"
+          if [ -f .htaccess ]; then
+            echo "✅ ルートの .htaccess をコピーします"
+            cp .htaccess out/.htaccess
           else
-            echo "⚠️ out/.htaccess が存在しないため、public/.htaccess をコピーします"
-            cp public/.htaccess out/.htaccess
+            echo "❌ .htaccess が見つかりません"
+            exit 1
           fi
           cat out/.htaccess
 
@@ -168,5 +167,5 @@ jobs:
 
       - name: デプロイ完了
         run: |
-          echo "✅ ロリポップへのWebDAVデプロイが完了しました"
-          echo "🌐 デプロイ先: https://staba-mahounogakuen.webdav-lolipop.jp/selflove/"
+          echo "✅ selflove.or.jp へのWebDAVデプロイが完了しました"
+          echo "🌐 デプロイ先: https://selflove.or.jp/"
