@@ -41,3 +41,6 @@ auto-imports.d.ts
 
 # 開発用ディレクトリ（ルートのみ）
 /vivian-os/
+
+# Claude Code一時ファイル
+tmpclaude-*-cwd
