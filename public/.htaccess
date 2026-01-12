@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /selflove/
+  RewriteBase /
 
   # アセットファイル、PDF、画像ファイルは書き換えない
   RewriteRule ^assets/ - [L]
