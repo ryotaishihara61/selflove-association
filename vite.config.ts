@@ -3,16 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'node:path'
 import AutoImport from 'unplugin-auto-import/vite'
 
-// BASE_PATHの処理（Windowsでのパス変換を考慮）
-let base = process.env.BASE_PATH || '/'
-// Windowsのパス変換を修正（例: "/Program Files/Git/selflove" -> "/selflove"）
-if (base.includes('Program Files') || base.includes('C:')) {
-  base = '/selflove'
-}
-// 末尾のスラッシュを確保
-if (base !== '/' && !base.endsWith('/')) {
-  base = base + '/'
-}
+const base = process.env.BASE_PATH || '/'
 const isPreview = process.env.IS_PREVIEW  ? true : false;
 // https://vite.dev/config/
 export default defineConfig({
