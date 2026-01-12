@@ -41,11 +41,13 @@ jobs:
 
           # /selflove/assets ディレクトリを作成
           curl -X MKCOL \
+            -k \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets" || true
 
           # /selflove/assets/images ディレクトリを作成
           curl -X MKCOL \
+            -k \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/images" || true
 
@@ -60,16 +62,19 @@ jobs:
 
           # index.htmlを削除
           curl -X DELETE \
+            -k \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/index.html" 2>/dev/null || true
 
           # sitemap.xmlを削除
           curl -X DELETE \
+            -k \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/sitemap.xml" 2>/dev/null || true
 
           # assetsディレクトリを再帰的に削除（Depth: infinityヘッダー付き）
           curl -X DELETE \
+            -k \
             -H "Depth: infinity" \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/" 2>/dev/null || true
@@ -106,6 +111,7 @@ jobs:
                 fi
 
                 curl -X MKCOL \
+                  -k \
                   --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
                   "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/$current_path" 2>/dev/null || true
               done
@@ -114,6 +120,7 @@ jobs:
             # ファイルをアップロード
             echo "📄 アップロード中: $clean_path"
             curl -T "$file" \
+              -k \
               --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
               "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/$clean_path"
 
@@ -135,6 +142,7 @@ jobs:
           echo "📄 .htaccess をアップロード中..."
 
           curl -T out/.htaccess \
+            -k \
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/.htaccess"
 
