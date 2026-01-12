@@ -25,7 +25,20 @@ jobs:
         run: npm ci
 
       - name: ビルド実行
+        env:
+          BASE_PATH: /selflove/
         run: npm run build
+
+      - name: .htaccessファイルの配置
+        run: |
+          echo "📄 .htaccessファイルを確認中..."
+          if [ -f out/.htaccess ]; then
+            echo "✅ out/.htaccess が存在します"
+          else
+            echo "⚠️ out/.htaccess が存在しないため、public/.htaccess をコピーします"
+            cp public/.htaccess out/.htaccess
+          fi
+          cat out/.htaccess
 
       - name: ビルド成果物の確認
         run: |
