@@ -45,27 +45,6 @@ jobs:
           echo "📦 ビルド完了。以下のファイルをデプロイします："
           ls -la out/
 
-      - name: WebDAVディレクトリ事前作成
-        env:
-          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
-          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
-        run: |
-          echo "📁 WebDAVディレクトリを事前作成中..."
-
-          # /selflove/assets ディレクトリを作成
-          curl -X MKCOL \
-            -k \
-            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
-            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets" || true
-
-          # /selflove/assets/images ディレクトリを作成
-          curl -X MKCOL \
-            -k \
-            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
-            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/images" || true
-
-          echo "✅ ディレクトリ作成完了"
-
       - name: 古いファイルをクリーンアップ
         env:
           WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
@@ -92,7 +71,23 @@ jobs:
             --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
             "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/assets/" 2>/dev/null || true
 
+          # pdfディレクトリも削除
+          curl -X DELETE \
+            -k \
+            -H "Depth: infinity" \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/pdf/" 2>/dev/null || true
+
+          # audioディレクトリも削除
+          curl -X DELETE \
+            -k \
+            -H "Depth: infinity" \
+            --user "$WEBDAV_USERNAME:$WEBDAV_PASSWORD" \
+            "https://staba-mahounogakuen.webdav-lolipop.jp/selflove/audio/" 2>/dev/null || true
+
           echo "✅ クリーンアップ完了"
+          echo "⏳ 削除処理の完了を待機中..."
+          sleep 3
 
       - name: WebDAVでファイルをアップロード
         env:
@@ -103,8 +98,8 @@ jobs:
 
           cd out
 
-          # すべてのファイルを検索してアップロード
-          find . -type f | while read -r file; do
+          # すべてのファイルを検索してアップロード（.htaccessを除外）
+          find . -type f ! -name '.htaccess' | while read -r file; do
             # ./ を削除してクリーンなパスにする
             clean_path="${file#./}"
 
