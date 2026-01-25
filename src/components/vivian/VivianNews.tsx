@@ -9,7 +9,7 @@ const VivianNews = () => {
 
   const newsItems = [
     {
-      date: "2026.1.24",
+      date: "2026.1.22",
       content: (
         <>
           カンボジアの教育施設 HIROSHIMA HOUSEにてビビアン朗読ワークを実施しました。
