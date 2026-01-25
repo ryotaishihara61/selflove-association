@@ -9,6 +9,22 @@ const VivianNews = () => {
 
   const newsItems = [
     {
+      date: "2026.1.24",
+      content: (
+        <>
+          カンボジアの教育施設 HIROSHIMA HOUSEにてビビアン朗読ワークを実施しました。
+          <a
+            href="https://www.instagram.com/p/DT1d73qErto/?igsh=MWt0NTZlNXE5MHF0aA%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-600 hover:text-purple-800 underline"
+          >
+            授業の様子
+          </a>
+        </>
+      )
+    },
+    {
       date: "2025.12.12",
       content: (
         <>
